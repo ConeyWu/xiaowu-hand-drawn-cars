@@ -50,9 +50,9 @@ test("首页渲染 3 个单元、12 张课程卡片", async () => {
   const { initApp } = await import("../js/app.js");
   initApp();
   const html = elements["unit-map"].innerHTML;
-  assert.ok(html.includes("单元一 · 基础入门"));
-  assert.ok(html.includes("单元二 · 新能源设计元素"));
-  assert.ok(html.includes("单元三 · 创作进阶"));
+  assert.ok(html.includes("单元一 · 比例与结构"));
+  assert.ok(html.includes("单元二 · 新能源设计语言"));
+  assert.ok(html.includes("单元三 · 渲染与创作"));
   assert.equal(count(html, 'class="lesson-card"'), 12);
   assert.equal(count(html, "0/4"), 3);
 });
@@ -63,7 +63,7 @@ test("课程列表页渲染 12 张卡片", async () => {
   initApp();
   const html = elements["lesson-list"].innerHTML;
   assert.equal(count(html, 'class="lesson-card"'), 12);
-  assert.ok(html.includes("设计你自己的概念车"));
+  assert.ok(html.includes("概念车创作"));
 });
 
 test("课程页渲染步骤并支持打卡写入进度", async () => {
@@ -71,10 +71,10 @@ test("课程页渲染步骤并支持打卡写入进度", async () => {
   const { initApp } = await import("../js/app.js");
   initApp();
   const pageEl = elements["lesson-page"];
-  assert.ok(pageEl.innerHTML.includes("认识汽车的结构"));
-  assert.ok(pageEl.innerHTML.includes("先画一条地平线"));
+  assert.ok(pageEl.innerHTML.includes("汽车比例系统"));
+  assert.ok(pageEl.innerHTML.includes("画两个轮径圆，作为比例的基准尺"));
   assert.equal(count(pageEl.innerHTML, 'class="step"'), 4);
-  assert.ok(pageEl.innerHTML.includes("我画好啦！"));
+  assert.ok(pageEl.innerHTML.includes("完成本节"));
   assert.deepEqual(storage.getItem("xiaowu.completedLessons"), null);
 
   const click = getClickHandler();

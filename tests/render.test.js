@@ -23,7 +23,7 @@ test("单元区块包含单元名、课程卡片与进度", () => {
   const unit = SITE_DATA.units[0];
   const html = unitSectionHTML(unit, progressStub);
   assert.ok(html.includes("单元一"));
-  assert.ok(html.includes("认识汽车的结构"));
+  assert.ok(html.includes("汽车比例系统"));
   assert.ok(html.includes("1/4"));
 });
 
@@ -37,7 +37,7 @@ test("课程页包含目标、全部步骤插图与口诀", () => {
     assert.ok(html.includes(s.caption), `缺少步骤：${s.caption}`);
     assert.ok(html.includes(s.art), `缺少插图：${s.art}`);
   }
-  assert.ok(html.includes("我画好啦"));
+  assert.ok(html.includes("完成本节"));
   assert.ok(html.includes("lesson.html?id=2"));
 });
 

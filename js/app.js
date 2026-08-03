@@ -59,7 +59,7 @@ export function lessonPageHTML(lesson, prev, next, isComplete) {
   ].join("");
   const actionBtn = isComplete
     ? '<button class="btn btn-done" data-action="complete" disabled>✓ 已完成！</button>'
-    : '<button class="btn btn-primary" data-action="complete">我画好啦！</button>';
+    : '<button class="btn btn-primary" data-action="complete">完成本节</button>';
   return `
   <article class="lesson-page">
     ${refHTML}
