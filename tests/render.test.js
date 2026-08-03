@@ -31,6 +31,7 @@ test("课程页包含目标、全部步骤插图与口诀", () => {
   const lesson = SITE_DATA.units[0].lessons[0];
   const next = SITE_DATA.units[0].lessons[1];
   const html = lessonPageHTML(lesson, null, next, false);
+  assert.ok(html.includes("reference-drawing.jpg"), "课程页应展示手绘范例");
   assert.ok(html.includes(lesson.goal));
   for (const s of lesson.steps) {
     assert.ok(html.includes(s.caption), `缺少步骤：${s.caption}`);

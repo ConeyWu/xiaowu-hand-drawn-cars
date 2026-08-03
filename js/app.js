@@ -34,6 +34,11 @@ export function unitSectionHTML(unit, progress) {
 }
 
 export function lessonPageHTML(lesson, prev, next, isComplete) {
+  const refHTML = `
+  <figure class="lesson-ref">
+    <img src="assets/reference/reference-drawing.jpg" alt="专业手绘汽车范例" loading="lazy">
+    <figcaption>专业手绘范例 · 画之前先观察它的比例和线条</figcaption>
+  </figure>`;
   const stepsHTML = lesson.steps
     .map(
       (s, i) => `
@@ -57,6 +62,7 @@ export function lessonPageHTML(lesson, prev, next, isComplete) {
     : '<button class="btn btn-primary" data-action="complete">我画好啦！</button>';
   return `
   <article class="lesson-page">
+    ${refHTML}
     <header class="lesson-header">
       <h1>第 ${lesson.id} 课 · ${lesson.title}</h1>
       <p class="goal">🎯 ${lesson.goal}</p>

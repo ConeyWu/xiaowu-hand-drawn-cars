@@ -17,7 +17,11 @@
 
 ## 部署
 
-推送到 GitHub 仓库后，在仓库 Settings → Pages 选择分支 `master`、目录 `/` 即可。访问地址为 `https://<用户名>.github.io/<仓库名>/`。
+推送到 GitHub 仓库后，在仓库 Settings → Pages 选择分支 `master`、目录 `/` 即可。
+
+## 线上地址
+
+https://coneywu.github.io/xiaowu-hand-drawn-cars/
 
 ## 目录
 

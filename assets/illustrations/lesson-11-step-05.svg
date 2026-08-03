@@ -1,22 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">
-<path d="M130 180 L370 180 Q390 180 390 200 L390 280 L110 280 L110 200 Q110 180 130 180 Z" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFF8EC"/>
-<line x1="60" y1="300" x2="440" y2="300" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
-<path d="M130 180 L370 180 Q390 180 390 200 L390 280 L110 280 L110 200 Q110 180 130 180 Z" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFF8EC"/>
-<line x1="60" y1="300" x2="440" y2="300" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
-<circle cx="150" cy="215" r="22" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
-<circle cx="350" cy="215" r="22" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
-<path d="M130 180 L370 180 Q390 180 390 200 L390 280 L110 280 L110 200 Q110 180 130 180 Z" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFF8EC"/>
-<line x1="60" y1="300" x2="440" y2="300" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
-<circle cx="150" cy="215" r="22" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
-<circle cx="350" cy="215" r="22" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
-<line x1="130" y1="232" x2="370" y2="232" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
-<rect x="130" y="246" width="240" height="26" rx="10" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
-<path d="M150 120 L350 120 Q380 120 380 145 L380 220 L120 220 L120 145 Q120 120 150 120 Z" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFF8EC"/>
-<line x1="60" y1="240" x2="440" y2="240" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
-<line x1="130" y1="172" x2="370" y2="172" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
-<path d="M150 120 L350 120 Q380 120 380 145 L380 220 L120 220 L120 145 Q120 120 150 120 Z" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFF8EC"/>
-<line x1="60" y1="240" x2="440" y2="240" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
-<line x1="130" y1="172" x2="370" y2="172" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
-<rect x="210" y="186" width="80" height="26" rx="4" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF"/>
-<text x="250" y="60" text-anchor="middle" font-size="24" font-family="'Microsoft YaHei', sans-serif" font-weight="bold" fill="#2F3542">前后都要会画</text>
+<defs>
+<linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F3"/><stop offset="18%" stop-color="#E9E4D8"/><stop offset="55%" stop-color="#C9C2B2"/><stop offset="100%" stop-color="#9C9484"/></linearGradient>
+<linearGradient id="gGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#55585F"/><stop offset="100%" stop-color="#7B7F88"/></linearGradient>
+<radialGradient id="gTire" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#4A4E55"/><stop offset="75%" stop-color="#2D3036"/><stop offset="100%" stop-color="#202227"/></radialGradient>
+<radialGradient id="gRim" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#F3F2EC"/><stop offset="70%" stop-color="#C6C1B4"/><stop offset="100%" stop-color="#A39C8D"/></radialGradient>
+<radialGradient id="gGround" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#8A8478" stop-opacity="0.34"/><stop offset="100%" stop-color="#8A8478" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="500" height="360" fill="#F1E9DB"/>
+<path d="M156 150 L344 150 Q372 150 372 172 L372 252 L128 252 L128 172 Q128 150 156 150 Z" fill="url(#gBody)" stroke="#565A63" stroke-width="1.4"/>
+<line x1="50" y1="300" x2="450" y2="300" stroke="#6C707A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M156 150 L344 150 Q372 150 372 172 L372 252 L128 252 L128 172 Q128 150 156 150 Z" fill="url(#gBody)" stroke="#565A63" stroke-width="1.4"/>
+<line x1="50" y1="300" x2="450" y2="300" stroke="#6C707A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="178" cy="196" r="13" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>
+<circle cx="322" cy="196" r="13" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>
+<path d="M156 150 L344 150 Q372 150 372 172 L372 252 L128 252 L128 172 Q128 150 156 150 Z" fill="url(#gBody)" stroke="#565A63" stroke-width="1.4"/>
+<line x1="50" y1="300" x2="450" y2="300" stroke="#6C707A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="178" cy="196" r="13" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>
+<circle cx="322" cy="196" r="13" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>
+<line x1="156" y1="214" x2="344" y2="214" stroke="#6C707A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M156 222 L344 222 L344 252 L156 252 Z" fill="#8B8478" opacity="0.5" stroke="#565A63" stroke-width="1.0"/>
+<path d="M174 118 L326 118 Q352 118 352 140 L352 208 L148 208 L148 140 Q148 118 174 118 Z" fill="url(#gBody)" stroke="#565A63" stroke-width="1.4"/>
+<line x1="50" y1="238" x2="450" y2="238" stroke="#6C707A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="162" y1="164" x2="338" y2="164" stroke="#6C707A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M174 118 L326 118 Q352 118 352 140 L352 208 L148 208 L148 140 Q148 118 174 118 Z" fill="url(#gBody)" stroke="#565A63" stroke-width="1.4"/>
+<line x1="50" y1="238" x2="450" y2="238" stroke="#6C707A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="162" y1="164" x2="338" y2="164" stroke="#6C707A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="206" y="180" width="88" height="22" rx="3" fill="#DDD8CB" stroke="#565A63" stroke-width="1.0"/>
+<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">前后都要会画</text>
 </svg>

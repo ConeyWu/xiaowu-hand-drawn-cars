@@ -1,5 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">
-<circle cx="150" cy="278" r="42" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
-<circle cx="150" cy="278" r="27" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF"/>
-<circle cx="150" cy="278" r="8" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
+<defs>
+<linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F3"/><stop offset="18%" stop-color="#E9E4D8"/><stop offset="55%" stop-color="#C9C2B2"/><stop offset="100%" stop-color="#9C9484"/></linearGradient>
+<linearGradient id="gGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#55585F"/><stop offset="100%" stop-color="#7B7F88"/></linearGradient>
+<radialGradient id="gTire" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#4A4E55"/><stop offset="75%" stop-color="#2D3036"/><stop offset="100%" stop-color="#202227"/></radialGradient>
+<radialGradient id="gRim" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#F3F2EC"/><stop offset="70%" stop-color="#C6C1B4"/><stop offset="100%" stop-color="#A39C8D"/></radialGradient>
+<radialGradient id="gGround" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#8A8478" stop-opacity="0.34"/><stop offset="100%" stop-color="#8A8478" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="500" height="360" fill="#F1E9DB"/>
+<circle cx="109" cy="300" r="29" stroke="#5F646E" stroke-width="1.5" fill="none"/>
+<line x1="80" y1="300" x2="138" y2="300" stroke="#8B909B" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="109" y1="271" x2="109" y2="329" stroke="#8B909B" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="109" cy="300" r="2.2" fill="#5F646E"/>
+<line x1="40" y1="329" x2="264" y2="329" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
