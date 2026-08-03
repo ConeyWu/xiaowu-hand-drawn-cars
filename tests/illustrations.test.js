@@ -4,7 +4,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-const EXPECTED_STEP_COUNTS = [5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 4, 5, 5, 4, 5, 5, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+const EXPECTED_STEP_COUNTS = [5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 4, 5, 5, 4, 5, 5, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
 const DIR = join("assets", "illustrations");
 
 function duplicateAttrs(xml) {
@@ -23,10 +23,10 @@ function runGenerator() {
   execFileSync(process.execPath, ["scripts/generate_car_svgs.js"], { cwd: process.cwd() });
 }
 
-test("生成 150 张步骤插画", () => {
+test("生成 155 张步骤插画", () => {
   runGenerator();
   const files = readdirSync(DIR).filter((f) => f.endsWith(".svg"));
-  assert.equal(files.length, 150);
+  assert.equal(files.length, 155);
 });
 
 test("每个步骤文件都存在、合法且非空", () => {
@@ -52,5 +52,5 @@ test("重复运行不会产生额外文件", () => {
   runGenerator();
   runGenerator();
   const files = readdirSync(DIR).filter((f) => f.endsWith(".svg"));
-  assert.equal(files.length, 150);
+  assert.equal(files.length, 155);
 });
