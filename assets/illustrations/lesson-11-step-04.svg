@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">
+<path d="M130 180 L370 180 Q390 180 390 200 L390 280 L110 280 L110 200 Q110 180 130 180 Z" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFF8EC"/>
+<line x1="60" y1="300" x2="440" y2="300" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
+<path d="M130 180 L370 180 Q390 180 390 200 L390 280 L110 280 L110 200 Q110 180 130 180 Z" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFF8EC"/>
+<line x1="60" y1="300" x2="440" y2="300" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
+<circle cx="150" cy="215" r="22" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
+<circle cx="350" cy="215" r="22" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
+<path d="M130 180 L370 180 Q390 180 390 200 L390 280 L110 280 L110 200 Q110 180 130 180 Z" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFF8EC"/>
+<line x1="60" y1="300" x2="440" y2="300" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
+<circle cx="150" cy="215" r="22" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
+<circle cx="350" cy="215" r="22" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
+<line x1="130" y1="232" x2="370" y2="232" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
+<rect x="130" y="246" width="240" height="26" rx="10" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
+<path d="M150 120 L350 120 Q380 120 380 145 L380 220 L120 220 L120 145 Q120 120 150 120 Z" stroke="#2F3542" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="#FFF8EC"/>
+<line x1="60" y1="240" x2="440" y2="240" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#37474F"/>
+<line x1="130" y1="172" x2="370" y2="172" stroke="#2F3542" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="#FFD23F"/>
+</svg>

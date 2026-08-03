@@ -1,0 +1,114 @@
+// 浏览器集成测试（无浏览器环境替代）：用 DOM 桩驱动 app.js 的真实渲染与打卡流程
+import test from "node:test";
+import assert from "node:assert/strict";
+
+function memoryStorage() {
+  const m = new Map();
+  return {
+    getItem: (k) => (m.has(k) ? m.get(k) : null),
+    setItem: (k, v) => { m.set(k, String(v)); },
+    removeItem: (k) => { m.delete(k); },
+  };
+}
+
+function setupDom(page, search = "") {
+  const listeners = {};
+  const elements = {};
+  const storage = memoryStorage();
+  let clickHandler = null;
+  globalThis.window = {
+    localStorage: storage,
+    location: { search, href: "" },
+  };
+  globalThis.document = {
+    body: { dataset: { page } },
+    getElementById: (id) => {
+      if (!elements[id]) {
+        elements[id] = {
+          innerHTML: "",
+          querySelector: (sel) => {
+            if (sel === '[data-action="complete"]') {
+              return { addEventListener: (evt, cb) => { clickHandler = cb; } };
+            }
+            return null;
+          },
+        };
+      }
+      return elements[id];
+    },
+    addEventListener: (evt, cb) => { listeners[evt] = cb; },
+  };
+  return { storage, elements, listeners, getClickHandler: () => clickHandler };
+}
+
+function count(html, marker) {
+  return (html.match(new RegExp(marker, "g")) || []).length;
+}
+
+test("首页渲染 3 个单元、12 张课程卡片", async () => {
+  const { elements } = setupDom("home");
+  const { initApp } = await import("../js/app.js");
+  initApp();
+  const html = elements["unit-map"].innerHTML;
+  assert.ok(html.includes("单元一 · 基础入门"));
+  assert.ok(html.includes("单元二 · 新能源设计元素"));
+  assert.ok(html.includes("单元三 · 创作进阶"));
+  assert.equal(count(html, 'class="lesson-card"'), 12);
+  assert.equal(count(html, "0/4"), 3);
+});
+
+test("课程列表页渲染 12 张卡片", async () => {
+  const { elements } = setupDom("lessons");
+  const { initApp } = await import("../js/app.js");
+  initApp();
+  const html = elements["lesson-list"].innerHTML;
+  assert.equal(count(html, 'class="lesson-card"'), 12);
+  assert.ok(html.includes("设计你自己的概念车"));
+});
+
+test("课程页渲染步骤并支持打卡写入进度", async () => {
+  const { storage, elements, getClickHandler } = setupDom("lesson", "?id=1");
+  const { initApp } = await import("../js/app.js");
+  initApp();
+  const pageEl = elements["lesson-page"];
+  assert.ok(pageEl.innerHTML.includes("认识汽车的结构"));
+  assert.ok(pageEl.innerHTML.includes("先画一条地平线"));
+  assert.equal(count(pageEl.innerHTML, 'class="step"'), 4);
+  assert.ok(pageEl.innerHTML.includes("我画好啦！"));
+  assert.deepEqual(storage.getItem("xiaowu.completedLessons"), null);
+
+  const click = getClickHandler();
+  assert.ok(click, "打卡按钮应有事件监听");
+  click();
+  assert.deepEqual(JSON.parse(storage.getItem("xiaowu.completedLessons")), [1]);
+  assert.ok(pageEl.innerHTML.includes("已完成"));
+  assert.ok(pageEl.innerHTML.includes("disabled"));
+});
+
+test("不存在的课程 id 跳回课程列表", async () => {
+  setupDom("lesson", "?id=99");
+  const { initApp } = await import("../js/app.js");
+  initApp();
+  assert.equal(globalThis.window.location.href, "lessons.html");
+});
+
+test("完成一个单元后首页点亮徽章", async () => {
+  const { storage, elements } = setupDom("home");
+  const { initApp } = await import("../js/app.js");
+  storage.setItem("xiaowu.completedLessons", JSON.stringify([1, 2, 3, 4]));
+  initApp();
+  const html = elements["unit-map"].innerHTML;
+  assert.ok(html.includes("🏆 单元完成！"));
+  assert.ok(!html.includes("4/4"), "完成单元不再显示数字进度");
+  assert.equal(count(html, "0/4"), 2);
+});
+
+test("全部课程完成后总进度到位", async () => {
+  const { storage, elements } = setupDom("home");
+  const { initApp } = await import("../js/app.js");
+  storage.setItem("xiaowu.completedLessons", JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]));
+  initApp();
+  const html = elements["unit-map"].innerHTML;
+  assert.equal(count(html, "🏆 单元完成！"), 3);
+  assert.equal(count(html, "0/4"), 0);
+});
