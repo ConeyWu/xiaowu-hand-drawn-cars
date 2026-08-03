@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">
+<defs>
+<linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F3"/><stop offset="18%" stop-color="#E9E4D8"/><stop offset="55%" stop-color="#C9C2B2"/><stop offset="100%" stop-color="#9C9484"/></linearGradient>
+<linearGradient id="gGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#55585F"/><stop offset="100%" stop-color="#7B7F88"/></linearGradient>
+<radialGradient id="gTire" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#4A4E55"/><stop offset="75%" stop-color="#2D3036"/><stop offset="100%" stop-color="#202227"/></radialGradient>
+<radialGradient id="gRim" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#F3F2EC"/><stop offset="70%" stop-color="#C6C1B4"/><stop offset="100%" stop-color="#A39C8D"/></radialGradient>
+<radialGradient id="gGround" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#8A8478" stop-opacity="0.34"/><stop offset="100%" stop-color="#8A8478" stop-opacity="0"/></radialGradient>
+<radialGradient id="gMetal" cx="0.5" cy="0.36" r="0.66"><stop offset="0%" stop-color="#FDFCF8"/><stop offset="24%" stop-color="#D4CFC2"/><stop offset="48%" stop-color="#8B8478"/><stop offset="66%" stop-color="#3A3C42"/><stop offset="82%" stop-color="#B9B3A6"/><stop offset="100%" stop-color="#6E6A61"/></radialGradient>
+<radialGradient id="gMatte" cx="0.5" cy="0.42" r="0.62"><stop offset="0%" stop-color="#EFEDE6"/><stop offset="55%" stop-color="#B9B4A8"/><stop offset="100%" stop-color="#7D786E"/></radialGradient>
+<radialGradient id="gGlassBall" cx="0.36" cy="0.32" r="0.7"><stop offset="0%" stop-color="#FBF9F3" stop-opacity="0.2"/><stop offset="55%" stop-color="#7B7F88" stop-opacity="0.1"/><stop offset="100%" stop-color="#3A3C42" stop-opacity="0.38"/></radialGradient>
+<linearGradient id="gTonePaper" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D6D0C2"/><stop offset="100%" stop-color="#BCB5A5"/></linearGradient>
+<linearGradient id="gScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#41444C"/><stop offset="100%" stop-color="#22242A"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="500" height="360" fill="#F1E9DB"/>
+<rect x="70" y="60" width="14" height="84" rx="4" fill="#C9A98F" stroke="#6E6A61" stroke-width="1.0"/>
+<rect x="98" y="54" width="14" height="90" rx="4" fill="#8B8478" stroke="#6E6A61" stroke-width="1.0"/>
+<rect x="126" y="60" width="14" height="84" rx="4" fill="#EFE6D8" stroke="#6E6A61" stroke-width="1.0"/>
+<path d="M210 150 L256 58 L266 58 L220 150 Z" stroke="#3A3C42" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+<rect x="330" y="64" width="30" height="78" rx="6" fill="#B9B4A8" stroke="#6E6A61" stroke-width="1.0"/>
+<rect x="326" y="52" width="38" height="18" rx="3" fill="#8B8478" stroke="#6E6A61" stroke-width="1.0"/>
+<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">工具：色粉棒 · 擦笔 · 定画液</text>
+</svg>

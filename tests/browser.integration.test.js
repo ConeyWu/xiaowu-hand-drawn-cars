@@ -45,7 +45,7 @@ function count(html, marker) {
   return (html.match(new RegExp(marker, "g")) || []).length;
 }
 
-test("首页渲染 5 个单元、20 张课程卡片", async () => {
+test("首页渲染 7 个单元、31 张课程卡片", async () => {
   const { elements } = setupDom("home");
   const { initApp } = await import("../js/app.js");
   initApp();
@@ -55,17 +55,23 @@ test("首页渲染 5 个单元、20 张课程卡片", async () => {
   assert.ok(html.includes("单元三 · 新能源设计语言"));
   assert.ok(html.includes("单元四 · 渲染与表现"));
   assert.ok(html.includes("单元五 · 创作与作品集"));
-  assert.equal(count(html, 'class="lesson-card"'), 20);
+  assert.ok(html.includes("单元六 · 写生与材质"));
+  assert.ok(html.includes("单元七 · 专业技法与进阶"));
+  assert.equal(count(html, 'class="lesson-card"'), 31);
   assert.equal(count(html, "0/4"), 5);
+  assert.equal(count(html, "0/5"), 1);
+  assert.equal(count(html, "0/6"), 1);
 });
 
-test("课程列表页渲染 20 张卡片", async () => {
+test("课程列表页渲染 31 张卡片", async () => {
   const { elements } = setupDom("lessons");
   const { initApp } = await import("../js/app.js");
   initApp();
   const html = elements["lesson-list"].innerHTML;
-  assert.equal(count(html, 'class="lesson-card"'), 20);
+  assert.equal(count(html, 'class="lesson-card"'), 31);
   assert.ok(html.includes("概念车创作"));
+  assert.ok(html.includes("实车写生·线稿"));
+  assert.ok(html.includes("考前作品集标准"));
 });
 
 test("课程页渲染步骤并支持打卡写入进度", async () => {

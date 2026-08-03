@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">
+<defs>
+<linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F3"/><stop offset="18%" stop-color="#E9E4D8"/><stop offset="55%" stop-color="#C9C2B2"/><stop offset="100%" stop-color="#9C9484"/></linearGradient>
+<linearGradient id="gGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#55585F"/><stop offset="100%" stop-color="#7B7F88"/></linearGradient>
+<radialGradient id="gTire" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#4A4E55"/><stop offset="75%" stop-color="#2D3036"/><stop offset="100%" stop-color="#202227"/></radialGradient>
+<radialGradient id="gRim" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#F3F2EC"/><stop offset="70%" stop-color="#C6C1B4"/><stop offset="100%" stop-color="#A39C8D"/></radialGradient>
+<radialGradient id="gGround" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#8A8478" stop-opacity="0.34"/><stop offset="100%" stop-color="#8A8478" stop-opacity="0"/></radialGradient>
+<radialGradient id="gMetal" cx="0.5" cy="0.36" r="0.66"><stop offset="0%" stop-color="#FDFCF8"/><stop offset="24%" stop-color="#D4CFC2"/><stop offset="48%" stop-color="#8B8478"/><stop offset="66%" stop-color="#3A3C42"/><stop offset="82%" stop-color="#B9B3A6"/><stop offset="100%" stop-color="#6E6A61"/></radialGradient>
+<radialGradient id="gMatte" cx="0.5" cy="0.42" r="0.62"><stop offset="0%" stop-color="#EFEDE6"/><stop offset="55%" stop-color="#B9B4A8"/><stop offset="100%" stop-color="#7D786E"/></radialGradient>
+<radialGradient id="gGlassBall" cx="0.36" cy="0.32" r="0.7"><stop offset="0%" stop-color="#FBF9F3" stop-opacity="0.2"/><stop offset="55%" stop-color="#7B7F88" stop-opacity="0.1"/><stop offset="100%" stop-color="#3A3C42" stop-opacity="0.38"/></radialGradient>
+<linearGradient id="gTonePaper" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D6D0C2"/><stop offset="100%" stop-color="#BCB5A5"/></linearGradient>
+<linearGradient id="gScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#41444C"/><stop offset="100%" stop-color="#22242A"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="500" height="360" fill="#F1E9DB"/>
+<path d="M0 0 L500 0 L500 360 L0 360 Z" stroke="#3A3C42" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" fill="url(#gTonePaper)" />
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.45" transform="translate(1.2 0.9)"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="26 16 48 20 18 10" opacity="0.5"/>
+<path d="M130.8 198.7 C159.6 188.6 210.0 181.4 267.6 180.0 C318.0 181.4 346.8 188.6 368.4 198.7 L356.9 241.9 L120.7 241.9 Z" fill="none" stroke="#3A3C42" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M82 289 Q109 272 136 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="109" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="109" y1="300" x2="124.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="109" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="109" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<circle cx="412" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M385 289 Q412 272 439 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="412" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="412" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="412" y1="300" x2="427.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="412" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="412" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<line x1="60" y1="322" x2="480" y2="322" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">底色纸 + 线稿</text>
+<path d="M0 0 L500 0 L500 360 L0 360 Z" stroke="#3A3C42" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" fill="url(#gTonePaper)" />
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.45" transform="translate(1.2 0.9)"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="26 16 48 20 18 10" opacity="0.5"/>
+<path d="M130.8 198.7 C159.6 188.6 210.0 181.4 267.6 180.0 C318.0 181.4 346.8 188.6 368.4 198.7 L356.9 241.9 L120.7 241.9 Z" fill="none" stroke="#3A3C42" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M82 289 Q109 272 136 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="109" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="109" y1="300" x2="124.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="109" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="109" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<circle cx="412" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M385 289 Q412 272 439 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="412" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="412" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="412" y1="300" x2="427.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="412" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="412" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<line x1="60" y1="322" x2="480" y2="322" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" fill="#6E6A61" opacity="0.4"/>
+<ellipse cx="250" cy="330" rx="220" ry="12" fill="#3A3C42" opacity="0.32"/>
+<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">深色铺暗部与投影</text>
+<path d="M0 0 L500 0 L500 360 L0 360 Z" stroke="#3A3C42" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" fill="url(#gTonePaper)" />
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.45" transform="translate(1.2 0.9)"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="26 16 48 20 18 10" opacity="0.5"/>
+<path d="M130.8 198.7 C159.6 188.6 210.0 181.4 267.6 180.0 C318.0 181.4 346.8 188.6 368.4 198.7 L356.9 241.9 L120.7 241.9 Z" fill="none" stroke="#3A3C42" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M82 289 Q109 272 136 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="109" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="109" y1="300" x2="124.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="109" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="109" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<circle cx="412" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M385 289 Q412 272 439 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="412" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="412" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="412" y1="300" x2="427.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="412" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="412" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<line x1="60" y1="322" x2="480" y2="322" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" fill="#6E6A61" opacity="0.4"/>
+<ellipse cx="250" cy="330" rx="220" ry="12" fill="#3A3C42" opacity="0.32"/>
+<ellipse cx="250" cy="218" rx="190" ry="42" fill="#D6D0C2" opacity="0.5"/>
+<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">保留底色 = 中间调</text>
+<path d="M0 0 L500 0 L500 360 L0 360 Z" stroke="#3A3C42" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" fill="url(#gTonePaper)" />
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.45" transform="translate(1.2 0.9)"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="26 16 48 20 18 10" opacity="0.5"/>
+<path d="M130.8 198.7 C159.6 188.6 210.0 181.4 267.6 180.0 C318.0 181.4 346.8 188.6 368.4 198.7 L356.9 241.9 L120.7 241.9 Z" fill="none" stroke="#3A3C42" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M82 289 Q109 272 136 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="109" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="109" y1="300" x2="124.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="109" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="109" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<circle cx="412" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M385 289 Q412 272 439 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="412" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="412" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="412" y1="300" x2="427.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="412" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="412" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<line x1="60" y1="322" x2="480" y2="322" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" fill="#6E6A61" opacity="0.4"/>
+<ellipse cx="250" cy="330" rx="220" ry="12" fill="#3A3C42" opacity="0.32"/>
+<ellipse cx="250" cy="218" rx="190" ry="42" fill="#D6D0C2" opacity="0.5"/>
+<path d="M96 198 Q250 182 430 196" stroke="#FBF9F3" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M66 248 Q250 232 434 248" stroke="#FBF9F3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M120 285 Q250 276 420 285" stroke="#FBF9F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">白笔提亮高光与受光面</text>
+<path d="M0 0 L500 0 L500 360 L0 360 Z" stroke="#3A3C42" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" fill="url(#gTonePaper)" />
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.45" transform="translate(1.2 0.9)"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" stroke="#3A3C42" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="26 16 48 20 18 10" opacity="0.5"/>
+<path d="M130.8 198.7 C159.6 188.6 210.0 181.4 267.6 180.0 C318.0 181.4 346.8 188.6 368.4 198.7 L356.9 241.9 L120.7 241.9 Z" fill="none" stroke="#3A3C42" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M82 289 Q109 272 136 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="109" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="109" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="109" y1="300" x2="124.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="96.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="109" y1="300" x2="113.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="109" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="109" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<circle cx="412" cy="300" r="29" fill="url(#gTire)"/>
+<path d="M385 289 Q412 272 439 289" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>
+<circle cx="412" cy="300" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>
+<circle cx="412" cy="300" r="11.5" fill="#DDD8CB"/>
+<line x1="412" y1="300" x2="427.0" y2="300.0" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="314.3" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="308.8" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="399.9" y2="291.2" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/><line x1="412" y1="300" x2="416.6" y2="285.7" stroke="#5B5E66" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="412" cy="300" r="3.4" fill="#4A4E56"/>
+<ellipse cx="412" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
+<line x1="60" y1="322" x2="480" y2="322" stroke="#3A3C42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z" fill="#6E6A61" opacity="0.4"/>
+<ellipse cx="250" cy="330" rx="220" ry="12" fill="#3A3C42" opacity="0.32"/>
+<ellipse cx="250" cy="218" rx="190" ry="42" fill="#D6D0C2" opacity="0.5"/>
+<path d="M96 198 Q250 182 430 196" stroke="#FBF9F3" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M66 248 Q250 232 434 248" stroke="#FBF9F3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M120 285 Q250 276 420 285" stroke="#FBF9F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M66 270 Q250 252 434 270" stroke="#3A3C42" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35"/>
+<line x1="300" y1="250" x2="316" y2="249" stroke="#3A3C42" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">马克笔补细节：底色高光完成</text>
+</svg>

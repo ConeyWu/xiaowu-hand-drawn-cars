@@ -2,20 +2,21 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { SITE_DATA } from "../js/data.js";
 
-const EXPECTED_STEP_COUNTS = [5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 4, 5, 5, 4, 5, 5, 4, 4, 5];
+const EXPECTED_STEP_COUNTS = [5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 4, 5, 5, 4, 5, 5, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
 
 test("站点名正确", () => {
   assert.equal(SITE_DATA.siteName, "小吴手绘汽车");
 });
 
-test("5 个单元，每单元 4 课，共 20 课，id 唯一", () => {
-  assert.equal(SITE_DATA.units.length, 5);
-  for (const u of SITE_DATA.units) {
-    assert.equal(u.lessons.length, 4);
-  }
+test("7 个单元，共 31 课，id 唯一", () => {
+  assert.equal(SITE_DATA.units.length, 7);
+  const expectedUnitSizes = [4, 4, 4, 4, 4, 5, 6];
+  SITE_DATA.units.forEach((u, i) => {
+    assert.equal(u.lessons.length, expectedUnitSizes[i]);
+  });
   const ids = SITE_DATA.units.flatMap((u) => u.lessons.map((l) => l.id));
-  assert.equal(ids.length, 20);
-  assert.equal(new Set(ids).size, 20);
+  assert.equal(ids.length, 31);
+  assert.equal(new Set(ids).size, 31);
 });
 
 test("每课字段完整", () => {
