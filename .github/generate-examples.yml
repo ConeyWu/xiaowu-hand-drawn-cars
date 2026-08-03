@@ -1,0 +1,63 @@
+name: generate-examples
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: '生成范围：first2（先试两张）或 all（全套12张）'
+        required: true
+        default: 'first2'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install openai pillow
+      - name: Prepare prompts
+        env:
+          SCOPE: ${{ github.event.inputs.scope }}
+        run: |
+          python - <<'PYEOF'
+          import json, os
+          scope = os.environ.get('SCOPE', 'first2')
+          jobs = [json.loads(l) for l in open('.github/workflows/ai-prompts.jsonl', encoding='utf-8') if l.strip()]
+          if scope == 'first2':
+              jobs = jobs[:2]
+          os.makedirs('tmp/imagegen', exist_ok=True)
+          with open('tmp/imagegen/prompts.jsonl', 'w', encoding='utf-8') as f:
+              for j in jobs:
+                  f.write(json.dumps(j, ensure_ascii=False) + '\n')
+          print(f'prepared {len(jobs)} jobs')
+          PYEOF
+      - name: Run image generation
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python .github/workflows/image_gen.py generate-batch \
+            --input tmp/imagegen/prompts.jsonl \
+            --out-dir output/imagegen \
+            --concurrency 2
+      - name: Collect outputs
+        run: |
+          mkdir -p assets/examples
+          if ls output/imagegen/*.png >/dev/null 2>&1; then cp output/imagegen/*.png assets/examples/; fi
+          ls -la assets/examples || true
+      - name: Commit generated images
+        run: |
+          git config user.name "codex-deploy"
+          git config user.email "codex-deploy@users.noreply.github.com"
+          git add assets/examples
+          if git diff --cached --quiet; then
+            echo "no new images to commit"
+          else
+            git commit -m "chore: AI 完成稿生成"
+            git push origin HEAD:master
+          fi
