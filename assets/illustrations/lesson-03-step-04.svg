@@ -56,13 +56,10 @@
 <line x1="358.2" y1="310.7" x2="363.2" y2="319.4" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="351.8" y1="313.0" x2="356.8" y2="321.7" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M152 299 L368 299 L368 292 Q260 288 152 292 Z" fill="#8A8478" opacity="0.34"/>
-<line x1="220.5" y1="291.3" x2="229.0" y2="299.8" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="213.7" y1="297.6" x2="222.2" y2="306.1" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="209.2" y1="302.5" x2="217.7" y2="311.0" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="203.2" y1="308.7" x2="211.7" y2="317.2" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="197.8" y1="315.4" x2="206.3" y2="323.9" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="191.8" y1="319.8" x2="200.3" y2="328.3" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="186.8" y1="325.3" x2="195.3" y2="333.7" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="181.1" y1="331.5" x2="189.6" y2="340.0" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">圆润的车身角</text>
+<line x1="230.5" y1="291.3" x2="239.0" y2="299.8" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="223.7" y1="297.6" x2="232.2" y2="306.1" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="219.2" y1="302.5" x2="227.7" y2="311.0" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="213.2" y1="308.7" x2="221.7" y2="317.2" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="207.8" y1="315.4" x2="216.3" y2="323.9" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="201.8" y1="319.8" x2="210.3" y2="328.3" stroke="#6C707A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

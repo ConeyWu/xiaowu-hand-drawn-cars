@@ -49,5 +49,4 @@
 <circle cx="412" cy="300" r="3.4" fill="#4A4E56"/>
 <ellipse cx="412" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
 <line x1="24" y1="329" x2="476" y2="329" stroke="#6C707A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">两个轮子一样大</text>
 </svg>

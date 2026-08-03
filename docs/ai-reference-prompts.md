@@ -13,6 +13,10 @@
 
 需要 `OPENAI_API_KEY` 环境变量，并且网络能访问 `api.openai.com`。
 
+**最简单的方式：双击运行项目根目录的 `run_ai_examples.bat`**——
+它会自动安装依赖、让你粘贴 API Key、生成第 4 课和第 12 课的两张试跑图。
+确认风格后，用 `run_ai_examples.bat all` 生成全套 12 张。
+
 1. 把下面的 JSONL 内容存为 `tmp/imagegen/prompts.jsonl`；
 2. 运行：
 

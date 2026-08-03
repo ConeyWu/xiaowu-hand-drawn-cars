@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">
+<defs>
+<linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F3"/><stop offset="18%" stop-color="#E9E4D8"/><stop offset="55%" stop-color="#C9C2B2"/><stop offset="100%" stop-color="#9C9484"/></linearGradient>
+<linearGradient id="gGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#55585F"/><stop offset="100%" stop-color="#7B7F88"/></linearGradient>
+<radialGradient id="gTire" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#4A4E55"/><stop offset="75%" stop-color="#2D3036"/><stop offset="100%" stop-color="#202227"/></radialGradient>
+<radialGradient id="gRim" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#F3F2EC"/><stop offset="70%" stop-color="#C6C1B4"/><stop offset="100%" stop-color="#A39C8D"/></radialGradient>
+<radialGradient id="gGround" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#8A8478" stop-opacity="0.34"/><stop offset="100%" stop-color="#8A8478" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="500" height="360" fill="#F1E9DB"/>
+<path d="M30 40 L470 40 L470 165 L30 165 Z" stroke="#3A3C42" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" fill="#D9DDE4" fill-opacity="0.5"/>
+<line x1="30" y1="165" x2="470" y2="165" stroke="#8B909B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="80" text-anchor="middle" font-size="14" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">天空</text>
+</svg>

@@ -45,24 +45,26 @@ function count(html, marker) {
   return (html.match(new RegExp(marker, "g")) || []).length;
 }
 
-test("首页渲染 3 个单元、12 张课程卡片", async () => {
+test("首页渲染 5 个单元、20 张课程卡片", async () => {
   const { elements } = setupDom("home");
   const { initApp } = await import("../js/app.js");
   initApp();
   const html = elements["unit-map"].innerHTML;
   assert.ok(html.includes("单元一 · 比例与结构"));
-  assert.ok(html.includes("单元二 · 新能源设计语言"));
-  assert.ok(html.includes("单元三 · 渲染与创作"));
-  assert.equal(count(html, 'class="lesson-card"'), 12);
-  assert.equal(count(html, "0/4"), 3);
+  assert.ok(html.includes("单元二 · 透视与视角"));
+  assert.ok(html.includes("单元三 · 新能源设计语言"));
+  assert.ok(html.includes("单元四 · 渲染与表现"));
+  assert.ok(html.includes("单元五 · 创作与作品集"));
+  assert.equal(count(html, 'class="lesson-card"'), 20);
+  assert.equal(count(html, "0/4"), 5);
 });
 
-test("课程列表页渲染 12 张卡片", async () => {
+test("课程列表页渲染 20 张卡片", async () => {
   const { elements } = setupDom("lessons");
   const { initApp } = await import("../js/app.js");
   initApp();
   const html = elements["lesson-list"].innerHTML;
-  assert.equal(count(html, 'class="lesson-card"'), 12);
+  assert.equal(count(html, 'class="lesson-card"'), 20);
   assert.ok(html.includes("概念车创作"));
 });
 
@@ -73,7 +75,7 @@ test("课程页渲染步骤并支持打卡写入进度", async () => {
   const pageEl = elements["lesson-page"];
   assert.ok(pageEl.innerHTML.includes("汽车比例系统"));
   assert.ok(pageEl.innerHTML.includes("画两个轮径圆，作为比例的基准尺"));
-  assert.equal(count(pageEl.innerHTML, 'class="step"'), 4);
+  assert.equal(count(pageEl.innerHTML, 'class="step"'), 5);
   assert.ok(pageEl.innerHTML.includes("完成本节"));
   assert.deepEqual(storage.getItem("xiaowu.completedLessons"), null);
 
@@ -100,15 +102,15 @@ test("完成一个单元后首页点亮徽章", async () => {
   const html = elements["unit-map"].innerHTML;
   assert.ok(html.includes("🏆 单元完成！"));
   assert.ok(!html.includes("4/4"), "完成单元不再显示数字进度");
-  assert.equal(count(html, "0/4"), 2);
+  assert.equal(count(html, "0/4"), 4);
 });
 
 test("全部课程完成后总进度到位", async () => {
   const { storage, elements } = setupDom("home");
   const { initApp } = await import("../js/app.js");
-  storage.setItem("xiaowu.completedLessons", JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]));
+  storage.setItem("xiaowu.completedLessons", JSON.stringify(Array.from({ length: 20 }, (_, i) => i + 1)));
   initApp();
   const html = elements["unit-map"].innerHTML;
-  assert.equal(count(html, "🏆 单元完成！"), 3);
+  assert.equal(count(html, "🏆 单元完成！"), 5);
   assert.equal(count(html, "0/4"), 0);
 });
