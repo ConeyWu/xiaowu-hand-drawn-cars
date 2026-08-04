@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// 生成 150 张课程步骤插画（SVG）— 以真实车型（紧凑型电动轿车）轮廓为底稿的速写
-// 覆盖 31 课：比例/透视/视角/设计语言/渲染/创作/作品集/写生/材质/专业技法/CAS
+// 生成 155 张课程步骤插画（SVG）— 以真实车型（紧凑型电动轿车）轮廓为底稿的速写
+// 覆盖 32 课：比例/透视/视角/设计语言/渲染/创作/作品集/写生/材质/专业技法/CAS
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -11,6 +11,9 @@ const OUT_DIR = join(ROOT, "assets", "illustrations");
 const INK = "#3A3C42";
 const INK_SOFT = "#6C707A";
 const PAPER = "#F1E9DB";
+const GRID_MINOR = "#B9C8DC";
+const GRID_MAJOR = "#9FB2CC";
+const CONSTRUCTION = "#6B8FC2";
 
 const DEFS = `<defs>
 <linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F3"/><stop offset="18%" stop-color="#E9E4D8"/><stop offset="55%" stop-color="#C9C2B2"/><stop offset="100%" stop-color="#9C9484"/></linearGradient>
@@ -64,8 +67,43 @@ function dim(x1, y1, x2, y2, text, dy = 0) {
     `<text x="${((x1 + x2) / 2).toFixed(0)}" y="${((y1 + y2) / 2 + 4 + dy).toFixed(0)}" text-anchor="middle" font-size="13" font-family="'Microsoft YaHei', sans-serif" fill="${INK_SOFT}">${text}</text>`
   );
 }
-function paper() {
-  return `<rect x="0" y="0" width="500" height="360" fill="${PAPER}"/>`;
+function gridPaper() {
+  const minor = [];
+  const major = [];
+  for (let x = 25; x < 500; x += 25) {
+    minor.push(`<line x1="${x}" y1="0" x2="${x}" y2="360" stroke="${GRID_MINOR}" stroke-width="0.5" opacity="0.5"/>`);
+  }
+  for (let y = 25; y < 360; y += 25) {
+    minor.push(`<line x1="0" y1="${y}" x2="500" y2="${y}" stroke="${GRID_MINOR}" stroke-width="0.5" opacity="0.5"/>`);
+  }
+  for (let x = 125; x < 500; x += 125) {
+    major.push(`<line x1="${x}" y1="0" x2="${x}" y2="360" stroke="${GRID_MAJOR}" stroke-width="0.9" opacity="0.65"/>`);
+  }
+  for (let y = 125; y < 360; y += 125) {
+    major.push(`<line x1="0" y1="${y}" x2="500" y2="${y}" stroke="${GRID_MAJOR}" stroke-width="0.9" opacity="0.65"/>`);
+  }
+  return (
+    `<rect x="0" y="0" width="500" height="360" fill="${PAPER}"/>` +
+    "\n" + minor.join("\n") +
+    "\n" + major.join("\n")
+  );
+}
+function proUnderlay(id) {
+  const guides = [];
+  guides.push(`<line x1="24" y1="329" x2="476" y2="329" stroke="${CONSTRUCTION}" stroke-width="1.0" stroke-dasharray="10 7" opacity="0.7"/>`);
+  const wheelGuideLessons = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 26, 27, 28]);
+  if (wheelGuideLessons.has(id)) {
+    for (const cx of [REAR_CX, FRONT_CX]) {
+      guides.push(`<circle cx="${cx}" cy="${WHEEL_CY}" r="29" stroke="${CONSTRUCTION}" stroke-width="0.9" fill="none" opacity="0.6"/>`);
+      guides.push(`<line x1="${cx - 33}" y1="${WHEEL_CY}" x2="${cx + 33}" y2="${WHEEL_CY}" stroke="${CONSTRUCTION}" stroke-width="0.8" opacity="0.5"/>`);
+      guides.push(`<line x1="${cx}" y1="${WHEEL_CY - 33}" x2="${cx}" y2="${WHEEL_CY + 33}" stroke="${CONSTRUCTION}" stroke-width="0.8" opacity="0.5"/>`);
+    }
+    guides.push(`<line x1="${REAR_CX}" y1="${WHEEL_CY}" x2="${FRONT_CX}" y2="${WHEEL_CY}" stroke="${CONSTRUCTION}" stroke-width="0.8" stroke-dasharray="6 5" opacity="0.45"/>`);
+  }
+  if (id === 29) {
+    guides.push(`<line x1="60" y1="212" x2="440" y2="212" stroke="${CONSTRUCTION}" stroke-width="1.0" stroke-dasharray="10 7" opacity="0.7"/>`);
+  }
+  return gridPaper() + "\n" + guides.join("\n");
 }
 function svgDoc(body) {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">\n${DEFS}\n${body}\n</svg>\n`;
@@ -84,9 +122,12 @@ function hatch(x, y, n, len, gap, angleDeg = 45) {
   for (let i = 0; i < n; i++) {
     const jx = x + px * i * gap + (rnd(i) - 0.5) * 1.6;
     const jy = y + py * i * gap + (rnd(i + 50) - 0.5) * 1.6;
-    out.push(`<line x1="${(jx).toFixed(1)}" y1="${(jy).toFixed(1)}" x2="${(jx + dx * len).toFixed(1)}" y2="${(jy + dy * len).toFixed(1)}" ${stroke(1.1, INK_SOFT)}/>`);
+    out.push(`<line x1="${(jx).toFixed(1)}" y1="${(jy).toFixed(1)}" x2="${(jx + dx * len).toFixed(1)}" y2="${(jy + dy * len).toFixed(1)}" ${stroke(1.3, "#555B66")} opacity="0.95"/>`);
   }
   return out.join("\n");
+}
+function crossHatch(x, y, n, len, gap, angleDeg = 45) {
+  return hatch(x, y, n, len, gap, angleDeg) + "\n" + hatch(x + gap * 0.5, y + gap * 0.5, n, len, gap, -angleDeg);
 }
 
 // ============ 真实车型底稿（紧凑型电动轿车，坐标已换算到 500x360） ============
@@ -100,29 +141,40 @@ const BODY_D =
 const GLASS_D =
   "M130.8 198.7 C159.6 188.6 210.0 181.4 267.6 180.0 C318.0 181.4 346.8 188.6 368.4 198.7 L356.9 241.9 L120.7 241.9 Z";
 
-function spokes(cx, cy, r = 15, w = 1.5) {
-  const arms = [0, 72, 144, 216, 288];
+function spokes(cx, cy, r = 17, w = 1.5) {
+  const arms = [0, 45, 90, 135, 180, 225, 270, 315];
   return arms
     .map((a) => {
       const rad = (a * Math.PI) / 180;
-      return `<line x1="${cx}" y1="${cy}" x2="${(cx + r * Math.cos(rad)).toFixed(1)}" y2="${(cy + r * Math.sin(rad)).toFixed(1)}" stroke="#5B5E66" stroke-width="${w}" stroke-linecap="round"/>`;
+      return `<line x1="${cx}" y1="${cy}" x2="${(cx + r * Math.cos(rad)).toFixed(1)}" y2="${(cy + r * Math.sin(rad)).toFixed(1)}" stroke="#4A4E56" stroke-width="${w + 0.3}" stroke-linecap="round"/>`;
     })
     .join("");
 }
 
 const BASE = {
   ground: () => line(24, GROUND_Y, 476, GROUND_Y, 1.7),
-  groundShadow: () => `<ellipse cx="250" cy="${GROUND_Y + 7}" rx="230" ry="13" fill="url(#gGround)"/>`,
+  groundShadow: () => `<ellipse cx="250" cy="${GROUND_Y + 7}" rx="230" ry="13" fill="url(#gGround)"/>` + "\n" + `<ellipse cx="250" cy="${GROUND_Y + 9}" rx="210" ry="9" fill="#6E6A61" opacity="0.22"/>`,
   wheelCircle: (cx) =>
     `<circle cx="${cx}" cy="${WHEEL_CY}" r="${WHEEL_R}" stroke="#5F646E" stroke-width="1.5" fill="none"/>` +
     "\n" + line(cx - WHEEL_R, WHEEL_CY, cx + WHEEL_R, WHEEL_CY, 0.9, "#8B909B") +
     "\n" + line(cx, WHEEL_CY - WHEEL_R, cx, WHEEL_CY + WHEEL_R, 0.9, "#8B909B") +
     "\n" + `<circle cx="${cx}" cy="${WHEEL_CY}" r="2.2" fill="#5F646E"/>`,
-  tire: (cx) =>
-    `<circle cx="${cx}" cy="${WHEEL_CY}" r="${WHEEL_R}" fill="url(#gTire)"/>` +
-    "\n" + `<path d="M${cx - 27} ${WHEEL_CY - 11} Q${cx} ${WHEEL_CY - 28} ${cx + 27} ${WHEEL_CY - 11}" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>`,
-  rim: (cx) => `<circle cx="${cx}" cy="${WHEEL_CY}" r="18" fill="url(#gRim)" stroke="#5B5E66" stroke-width="1.2"/>`,
-  disc: (cx) => `<circle cx="${cx}" cy="${WHEEL_CY}" r="11.5" fill="#DDD8CB"/>`,
+  tire: (cx) => {
+    const ticks = [];
+    for (let a = 0; a < 360; a += 30) {
+      const rad = (a * Math.PI) / 180;
+      const r1 = WHEEL_R - 5;
+      const r2 = WHEEL_R - 1;
+      ticks.push(`<line x1="${(cx + r1 * Math.cos(rad)).toFixed(1)}" y1="${(WHEEL_CY + r1 * Math.sin(rad)).toFixed(1)}" x2="${(cx + r2 * Math.cos(rad)).toFixed(1)}" y2="${(WHEEL_CY + r2 * Math.sin(rad)).toFixed(1)}" stroke="#8B8F98" stroke-width="1.2" opacity="0.7"/>`);
+    }
+    return (
+      `<circle cx="${cx}" cy="${WHEEL_CY}" r="${WHEEL_R}" fill="url(#gTire)"/>` +
+      "\n" + ticks.join("\n") +
+      "\n" + `<path d="M${cx - 27} ${WHEEL_CY - 11} Q${cx} ${WHEEL_CY - 28} ${cx + 27} ${WHEEL_CY - 11}" stroke="#8B8F98" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.8"/>`
+    );
+  },
+  rim: (cx) => `<circle cx="${cx}" cy="${WHEEL_CY}" r="18" fill="url(#gRim)" stroke="#4A4E56" stroke-width="1.5"/>`,
+  disc: (cx) => `<circle cx="${cx}" cy="${WHEEL_CY}" r="8.5" fill="#DDD8CB"/>`,
   hub: (cx) => `<circle cx="${cx}" cy="${WHEEL_CY}" r="3.4" fill="#4A4E56"/>`,
   contactShadow: (cx) => `<ellipse cx="${cx}" cy="${GROUND_Y - 7}" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>`,
   wheel: (cx) =>
@@ -138,12 +190,14 @@ const BASE = {
   glass: () =>
     `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` +
     "\n" + `<path d="M150 200 L240 190 L252 236 L138 236 Z" fill="#FBF9F3" opacity="0.2"/>` +
-    "\n" + line(253, 181, 253, 241, 1.0, "#3E4148"),
+    "\n" + line(253, 181, 253, 241, 1.0, "#3E4148") +
+    "\n" + strokePath("M168 204 L206 196", 1.3, "#FBF9F3") +
+    "\n" + strokePath("M176 218 L220 208", 1.0, "#FBF9F3"),
   rocker: () =>
     `<path d="M152 299 L368 299 L368 292 Q260 288 152 292 Z" fill="#8A8478" opacity="0.34"/>` +
     "\n" + hatch(230, 292, 6, 12, 8, 45),
   shoulder: () =>
-    strokePath("M66 256 Q250 240 434 256", 1.7, "#6E6A61") +
+    strokePath("M66 256 Q250 240 434 256", 2.0, "#6E6A61") +
     "\n" + strokePath("M66 248 Q250 232 434 248", 1.2, "#FBF9F3"),
   doorCut: () => path("M310 246 Q316 270 312 292", 1.0),
   handle: () => line(286, 252, 304, 251, 1.5, "#4A4E56"),
@@ -193,6 +247,14 @@ const BASE = {
     "\n" + BASE.doorCut() +
     "\n" + BASE.handle() +
     "\n" + BASE.mirror(),
+  contour: () =>
+    strokePath(BODY_D, 2.6) +
+    "\n" + strokePath(BODY_D, 1.7, "#5B5E66") +
+    "\n" + strokePath(BODY_D, 1.1, INK) +
+    "\n" + strokePath("M66 256 Q250 240 434 256", 1.5, INK),
+  outlineLight: () =>
+    strokePath(BODY_D, 1.9, INK) +
+    "\n" + strokePath(BODY_D, 1.2, "#5B5E66"),
 };
 
 // ============ 专业技法辅助 ============
@@ -236,20 +298,42 @@ function screenCanvas(x, y, w, h) {
 
 // 内饰速写元素（一点透视内饰）
 const INT_BASE = {
-  windshield: () => path("M96 172 Q250 152 404 172 L380 132 Q250 118 120 132 Z", 1.2),
-  dash: () => path("M74 212 L426 212 L404 172 Q250 152 96 172 Z", 1.5),
-  screen: () => path("M190 190 L310 190 L314 210 L186 210 Z", 1.2, "url(#gScreen)"),
+  windshield: () =>
+    path("M96 172 Q250 152 404 172 L380 132 Q250 118 120 132 Z", 1.2) +
+    "\n" + strokePath("M118 140 Q250 126 382 140", 0.9, "#8B909B") +
+    "\n" + strokePath("M108 160 Q250 146 392 160", 0.8, "#8B909B"),
+  dash: () => path("M74 212 L426 212 L404 172 Q250 152 96 172 Z", 1.6),
+  screen: () =>
+    path("M190 190 L310 190 L314 210 L186 210 Z", 1.2, "url(#gScreen)") +
+    "\n" + strokePath("M194 194 L304 194 L306 204 L192 204 Z", 0.8, "#8B909B") +
+    "\n" + strokePath("M202 196 L238 192", 1.0, "#FBF9F3"),
   wheel: () =>
-    `<ellipse cx="250" cy="244" rx="40" ry="13" stroke="${INK}" stroke-width="2.0" fill="none"/>` +
-    "\n" + line(210, 244, 290, 244, 1.4, INK) +
-    "\n" + line(250, 231, 250, 257, 1.4, INK),
+    `<ellipse cx="250" cy="244" rx="40" ry="13" stroke="${INK}" stroke-width="2.2" fill="none"/>` +
+    "\n" + `<ellipse cx="250" cy="244" rx="38" ry="11.5" stroke="#8B909B" stroke-width="0.8" fill="none"/>` +
+    "\n" + line(220, 241, 280, 247, 2.0, INK) +
+    "\n" + line(250, 231, 250, 257, 1.6, INK) +
+    "\n" + `<circle cx="250" cy="244" r="4" fill="#4A4E56"/>` +
+    "\n" + strokePath("M216 238 Q250 226 284 236", 1.0, "#FBF9F3"),
   column: () => line(250, 257, 250, 216, 2.2),
-  vent: (x) => line(x, 226, x + 46, 224, 1.4) + "\n" + line(x, 232, x + 46, 230, 1.1),
+  vent: (x) =>
+    line(x, 226, x + 46, 224, 1.4) +
+    "\n" + line(x, 232, x + 46, 230, 1.1) +
+    "\n" + line(x + 15, 225, x + 15, 231, 0.9) +
+    "\n" + line(x + 30, 225, x + 30, 231, 0.9),
   seat: (x) =>
     `<path d="M${x} 300 L${x + 46} 300 L${x + 46} 268 Q${x + 46} 252 ${x + 30} 252 L${x + 16} 252 Q${x} 252 ${x} 268 Z" stroke="${INK}" stroke-width="1.6" fill="none"/>` +
+    "\n" + `<path d="M${x + 2} 254 L${x + 10} 238 L${x + 28} 238 L${x + 28} 254 Z" stroke="${INK}" stroke-width="1.2" fill="none"/>` +
     "\n" + line(x + 8, 300, x + 8, 264, 1.2) +
     "\n" + line(x + 20, 300, x + 20, 258, 1.2) +
-    "\n" + line(x + 32, 300, x + 32, 260, 1.2),
+    "\n" + line(x + 32, 300, x + 32, 260, 1.2) +
+    "\n" + dashLine(x + 14, 262, x + 14, 292, 0.8) +
+    "\n" + dashLine(x + 26, 260, x + 26, 292, 0.8),
+  dial: (cx, cy, r) =>
+    `<circle cx="${cx}" cy="${cy}" r="${r}" stroke="${INK}" stroke-width="1.3" fill="none"/>` +
+    "\n" + `<circle cx="${cx}" cy="${cy}" r="${(r * 0.6).toFixed(1)}" stroke="#8B909B" stroke-width="0.8" fill="none"/>` +
+    "\n" + line(cx - r * 0.7, cy, cx + r * 0.7, cy, 0.9, "#8B909B") +
+    "\n" + line(cx, cy - r * 0.7, cx, cy + r * 0.7, 0.9, "#8B909B") +
+    "\n" + line(cx, cy, cx + r * 0.55, cy - r * 0.45, 1.4, "#B3483A"),
 };
 
 // ============ 31 课插画 ============
@@ -456,7 +540,7 @@ const DRAWINGS = [
       { firstStep: 2, svg: panel(24, 22, 118, 72, "参考照片") + "\n" + miniCar(38, 36, 0.15) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + path("M60 160 L470 160 L470 306 L60 306 Z", 1.0, "none", 'stroke-dasharray="8 6"') + "\n" + rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + label("轮子与地面线锁定姿态", 295, 60) },
       { firstStep: 3, svg: panel(24, 22, 118, 72, "参考照片") + "\n" + miniCar(38, 36, 0.15) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + BASE.fenders() + "\n" + BASE.rocker() + "\n" + BASE.shoulder() + "\n" + label("大面轮廓一笔带过", 295, 60) },
       { firstStep: 4, svg: panel(24, 22, 118, 72, "参考照片") + "\n" + miniCar(38, 36, 0.15) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + BASE.fenders() + "\n" + BASE.rocker() + "\n" + BASE.shoulder() + "\n" + BASE.doorCut() + "\n" + BASE.handle() + "\n" + BASE.mirror() + "\n" + BASE.headlight() + "\n" + BASE.taillight() + "\n" + label("刻画分件：窗线 · 腰线 · 门缝", 295, 60) },
-      { firstStep: 5, svg: panel(24, 22, 118, 72, "参考照片") + "\n" + miniCar(38, 36, 0.15) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + `<ellipse cx="250" cy="330" rx="220" ry="12" fill="url(#gGround)"/>` + "\n" + `<path d="${BODY_D}" fill="url(#gBody)"/>` + "\n" + rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + BASE.fenders() + "\n" + BASE.rocker() + "\n" + BASE.shoulder() + "\n" + BASE.doorCut() + "\n" + BASE.handle() + "\n" + BASE.mirror() + "\n" + BASE.headlight() + "\n" + BASE.taillight() + "\n" + label("收线定型，擦淡辅助线", 295, 60) },
+      { firstStep: 5, svg: panel(24, 22, 118, 72, "参考照片") + "\n" + miniCar(38, 36, 0.15) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + `<ellipse cx="250" cy="330" rx="220" ry="12" fill="url(#gGround)"/>` + "\n" + `<path d="${BODY_D}" fill="url(#gBody)"/>` + "\n" + rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + BASE.fenders() + "\n" + BASE.rocker() + "\n" + BASE.shoulder() + "\n" + BASE.doorCut() + "\n" + BASE.handle() + "\n" + BASE.mirror() + "\n" + BASE.headlight() + "\n" + BASE.taillight() + "\n" + crossHatch(120, 272, 8, 16, 8, 35) + "\n" + crossHatch(300, 268, 8, 16, 8, 35) + "\n" + label("收线定型，擦淡辅助线", 295, 60) },
     ],
   },
   {
@@ -466,7 +550,7 @@ const DRAWINGS = [
       { firstStep: 2, svg: rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + lightArrow(96, 88, 178, 124) + "\n" + label("光源", 86, 82, 14) + "\n" + `<ellipse cx="250" cy="330" rx="220" ry="12" fill="url(#gGround)"/>` + "\n" + softEllipse(250, 284, 214, 30, "#6E6A61", 0.24) + "\n" + hatch(120, 272, 8, 16, 9, 35) + "\n" + hatch(300, 268, 8, 16, 9, 35) + "\n" + label("先铺暗部大调子", 250, 60) },
       { firstStep: 3, svg: rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + lightArrow(96, 88, 178, 124) + "\n" + label("光源", 86, 82, 14) + "\n" + `<ellipse cx="250" cy="330" rx="220" ry="12" fill="url(#gGround)"/>` + "\n" + softEllipse(250, 284, 214, 30, "#6E6A61", 0.24) + "\n" + hatch(120, 272, 8, 16, 9, 35) + "\n" + hatch(300, 268, 8, 16, 9, 35) + "\n" + path("M66 250 Q250 234 434 250", 2.6, "none", 'opacity="0.55"') + "\n" + BASE.fenders() + "\n" + label("加重转折与明暗交界线", 250, 60) },
       { firstStep: 4, svg: rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + lightArrow(96, 88, 178, 124) + "\n" + label("光源", 86, 82, 14) + "\n" + `<ellipse cx="250" cy="330" rx="220" ry="12" fill="url(#gGround)"/>` + "\n" + softEllipse(250, 284, 214, 30, "#6E6A61", 0.24) + "\n" + hatch(120, 272, 8, 16, 9, 35) + "\n" + hatch(300, 268, 8, 16, 9, 35) + "\n" + path("M66 250 Q250 234 434 250", 2.6, "none", 'opacity="0.55"') + "\n" + BASE.fenders() + "\n" + strokePath("M70 296 Q250 286 430 296", 1.4, "#FBF9F3") + "\n" + label("反光", 432, 290, 13) + "\n" + label("加反光与投影", 250, 60) },
-      { firstStep: 5, svg: rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + lightArrow(96, 88, 178, 124) + "\n" + label("光源", 86, 82, 14) + "\n" + `<ellipse cx="250" cy="330" rx="220" ry="12" fill="url(#gGround)"/>` + "\n" + softEllipse(250, 284, 214, 30, "#6E6A61", 0.24) + "\n" + hatch(120, 272, 8, 16, 9, 35) + "\n" + hatch(300, 268, 8, 16, 9, 35) + "\n" + path("M66 250 Q250 234 434 250", 2.6, "none", 'opacity="0.55"') + "\n" + BASE.fenders() + "\n" + strokePath("M70 296 Q250 286 430 296", 1.4, "#FBF9F3") + "\n" + label("反光", 432, 290, 13) + "\n" + strokePath("M96 198 Q250 182 430 196", 2.0, "#FBF9F3") + "\n" + label("黑白灰层次，完成写生", 250, 60) },
+      { firstStep: 5, svg: rough(BODY_D, 1.5) + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) + "\n" + line(60, 322, 480, 322, 1.5) + "\n" + lightArrow(96, 88, 178, 124) + "\n" + label("光源", 86, 82, 14) + "\n" + `<ellipse cx="250" cy="330" rx="220" ry="12" fill="url(#gGround)"/>` + "\n" + softEllipse(250, 284, 214, 30, "#6E6A61", 0.24) + "\n" + hatch(120, 272, 8, 16, 9, 35) + "\n" + hatch(300, 268, 8, 16, 9, 35) + "\n" + path("M66 250 Q250 234 434 250", 2.6, "none", 'opacity="0.55"') + "\n" + BASE.fenders() + "\n" + strokePath("M70 296 Q250 286 430 296", 1.4, "#FBF9F3") + "\n" + label("反光", 432, 290, 13) + "\n" + strokePath("M96 198 Q250 182 430 196", 2.0, "#FBF9F3") + "\n" + crossHatch(120, 272, 8, 16, 8, 35) + "\n" + crossHatch(300, 268, 8, 16, 8, 35) + "\n" + label("黑白灰层次，完成写生", 250, 60) },
     ],
   },
   {
@@ -526,7 +610,7 @@ const DRAWINGS = [
       { firstStep: 2, svg: strokePath(BODY_D, 1.3) + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + strokePath(GLASS_D, 1.1) + "\n" + line(60, 322, 480, 322, 1.3) + "\n" + softEllipse(250, 222, 140, 26, "#C9C2B2", 0.5) + "\n" + softEllipse(250, 278, 210, 24, "#9C9484", 0.35) + "\n" + softEllipse(250, 198, 120, 16, "#D9D4C8", 0.55) + "\n" + label("按面铺明暗：先浅后深", 250, 60) },
       { firstStep: 3, svg: strokePath(BODY_D, 1.3) + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + strokePath(GLASS_D, 1.1) + "\n" + line(60, 322, 480, 322, 1.3) + "\n" + `<path d="${BODY_D}" fill="url(#gBody)"/>` + "\n" + strokePath("M70 296 Q250 286 430 296", 1.6, "#FBF9F3") + "\n" + label("车漆渐变与倒影", 250, 60) },
       { firstStep: 4, svg: strokePath(BODY_D, 1.3) + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + `<path d="${BODY_D}" fill="url(#gBody)"/>` + "\n" + strokePath("M70 296 Q250 286 430 296", 1.6, "#FBF9F3") + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.headlight() + "\n" + BASE.taillight() + "\n" + hatch(66, 286, 5, 10, 6, 90) + "\n" + label("玻璃 · 灯组 · 分件精细刻画", 250, 60) },
-      { firstStep: 5, svg: strokePath(BODY_D, 1.3) + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + `<path d="${BODY_D}" fill="url(#gBody)"/>` + "\n" + strokePath("M70 296 Q250 286 430 296", 1.6, "#FBF9F3") + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.headlight() + "\n" + BASE.taillight() + "\n" + hatch(66, 286, 5, 10, 6, 90) + "\n" + BASE.wheelStudy() + "\n" + BASE.fenders() + "\n" + label("精细效果图 · 外饰", 250, 60) },
+      { firstStep: 5, svg: strokePath(BODY_D, 1.3) + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="29" stroke="${INK}" stroke-width="1.3" fill="none"/>` + "\n" + `<circle cx="${REAR_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + `<circle cx="${FRONT_CX}" cy="${WHEEL_CY}" r="17" stroke="${INK_SOFT}" stroke-width="1.0" fill="none"/>` + "\n" + `<path d="${BODY_D}" fill="url(#gBody)"/>` + "\n" + strokePath("M70 296 Q250 286 430 296", 1.6, "#FBF9F3") + "\n" + `<path d="${GLASS_D}" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` + "\n" + BASE.headlight() + "\n" + BASE.taillight() + "\n" + hatch(66, 286, 5, 10, 6, 90) + "\n" + BASE.wheelStudy() + "\n" + BASE.fenders() + "\n" + crossHatch(150, 286, 7, 12, 7, 40) + "\n" + crossHatch(320, 284, 7, 12, 7, 40) + "\n" + label("精细效果图 · 外饰", 250, 60) },
     ],
   },
   {
@@ -534,9 +618,9 @@ const DRAWINGS = [
     elements: [
       { firstStep: 1, svg: line(60, 212, 440, 212, 1.2, "#9A9488") + "\n" + INT_BASE.dash() + "\n" + INT_BASE.windshield() + "\n" + line(74, 224, 74, 320, 1.2) + "\n" + line(426, 222, 426, 318, 1.2) + "\n" + label("内饰透视：先定仪表台与视平线", 250, 60) },
       { firstStep: 2, svg: line(60, 212, 440, 212, 1.2, "#9A9488") + "\n" + INT_BASE.dash() + "\n" + INT_BASE.windshield() + "\n" + line(74, 224, 74, 320, 1.2) + "\n" + line(426, 222, 426, 318, 1.2) + "\n" + INT_BASE.screen() + "\n" + INT_BASE.column() + "\n" + INT_BASE.wheel() + "\n" + label("方向盘 + 中控屏", 250, 60) },
-      { firstStep: 3, svg: line(60, 212, 440, 212, 1.2, "#9A9488") + "\n" + INT_BASE.dash() + "\n" + INT_BASE.windshield() + "\n" + line(74, 224, 74, 320, 1.2) + "\n" + line(426, 222, 426, 318, 1.2) + "\n" + INT_BASE.screen() + "\n" + INT_BASE.column() + "\n" + INT_BASE.wheel() + "\n" + line(230, 236, 270, 236, 1.1) + "\n" + line(250, 222, 250, 266, 1.1) + "\n" + circle(140, 196, 10, 1.2) + "\n" + circle(176, 196, 7, 1.0) + "\n" + INT_BASE.vent(88) + "\n" + INT_BASE.vent(376) + "\n" + label("仪表盘 · 出风口 · 方向盘细节", 250, 60) },
+      { firstStep: 3, svg: line(60, 212, 440, 212, 1.2, "#9A9488") + "\n" + INT_BASE.dash() + "\n" + INT_BASE.windshield() + "\n" + line(74, 224, 74, 320, 1.2) + "\n" + line(426, 222, 426, 318, 1.2) + "\n" + INT_BASE.screen() + "\n" + INT_BASE.column() + "\n" + INT_BASE.wheel() + "\n" + INT_BASE.dial(140, 196, 11) + "\n" + INT_BASE.dial(178, 196, 8) + "\n" + INT_BASE.vent(88) + "\n" + INT_BASE.vent(376) + "\n" + label("仪表盘 · 出风口 · 方向盘细节", 250, 60) },
       { firstStep: 4, svg: line(60, 212, 440, 212, 1.2, "#9A9488") + "\n" + INT_BASE.dash() + "\n" + INT_BASE.windshield() + "\n" + line(74, 224, 74, 320, 1.2) + "\n" + line(426, 222, 426, 318, 1.2) + "\n" + INT_BASE.screen() + "\n" + INT_BASE.column() + "\n" + INT_BASE.wheel() + "\n" + line(230, 236, 270, 236, 1.1) + "\n" + line(250, 222, 250, 266, 1.1) + "\n" + circle(140, 196, 10, 1.2) + "\n" + circle(176, 196, 7, 1.0) + "\n" + INT_BASE.vent(88) + "\n" + INT_BASE.vent(376) + "\n" + INT_BASE.seat(150) + "\n" + INT_BASE.seat(330) + "\n" + line(250, 216, 250, 320, 1.3) + "\n" + label("座椅 · 门板 · 中控台", 250, 60) },
-      { firstStep: 5, svg: line(60, 212, 440, 212, 1.2, "#9A9488") + "\n" + INT_BASE.dash() + "\n" + INT_BASE.windshield() + "\n" + line(74, 224, 74, 320, 1.2) + "\n" + line(426, 222, 426, 318, 1.2) + "\n" + INT_BASE.screen() + "\n" + INT_BASE.column() + "\n" + INT_BASE.wheel() + "\n" + line(230, 236, 270, 236, 1.1) + "\n" + line(250, 222, 250, 266, 1.1) + "\n" + circle(140, 196, 10, 1.2) + "\n" + circle(176, 196, 7, 1.0) + "\n" + INT_BASE.vent(88) + "\n" + INT_BASE.vent(376) + "\n" + INT_BASE.seat(150) + "\n" + INT_BASE.seat(330) + "\n" + line(250, 216, 250, 320, 1.3) + "\n" + softEllipse(196, 280, 26, 30, "#8A8478", 0.2) + "\n" + softEllipse(376, 280, 26, 30, "#8A8478", 0.2) + "\n" + softEllipse(250, 200, 58, 12, "#FBF9F3", 0.22) + "\n" + label("光影统一：内饰效果图", 250, 60) },
+      { firstStep: 5, svg: line(60, 212, 440, 212, 1.2, "#9A9488") + "\n" + INT_BASE.dash() + "\n" + INT_BASE.windshield() + "\n" + line(74, 224, 74, 320, 1.2) + "\n" + line(426, 222, 426, 318, 1.2) + "\n" + INT_BASE.screen() + "\n" + INT_BASE.column() + "\n" + INT_BASE.wheel() + "\n" + INT_BASE.dial(140, 196, 11) + "\n" + INT_BASE.dial(178, 196, 8) + "\n" + INT_BASE.vent(88) + "\n" + INT_BASE.vent(376) + "\n" + INT_BASE.seat(150) + "\n" + INT_BASE.seat(330) + "\n" + line(250, 216, 250, 320, 1.3) + "\n" + softEllipse(196, 280, 26, 30, "#8A8478", 0.22) + "\n" + softEllipse(376, 280, 26, 30, "#8A8478", 0.22) + "\n" + softEllipse(250, 200, 58, 12, "#FBF9F3", 0.25) + "\n" + crossHatch(178, 278, 5, 14, 7, 35) + "\n" + crossHatch(358, 278, 5, 14, 7, 35) + "\n" + crossHatch(90, 236, 4, 12, 7, 60) + "\n" + crossHatch(408, 234, 4, 12, 7, 60) + "\n" + label("光影统一：内饰效果图", 250, 60) },
     ],
   },
   {
@@ -576,9 +660,25 @@ let count = 0;
 for (const drawing of DRAWINGS) {
   const maxStep = Math.max(...drawing.elements.map((e) => e.firstStep));
   for (let step = 1; step <= maxStep; step++) {
-    const body = drawing.elements.filter((e) => e.firstStep <= step).map((e) => e.svg).join("\n");
+    let body = drawing.elements.filter((e) => e.firstStep <= step).map((e) => e.svg).join("\n");
+    const DETAIL_AUTO = new Set([1, 2, 3, 4, 5, 6, 13, 14, 15, 22]);
+    const HATCH_AUTO = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
+    const OUTLINE_AUTO = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 21, 22, 28]);
+    const FINAL_CONTOUR = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 21, 22, 26, 27, 28]);
+    if (step === maxStep && DETAIL_AUTO.has(drawing.id)) {
+      body += "\n" + BASE.doorCut() + "\n" + BASE.handle() + "\n" + BASE.mirror() + "\n" + BASE.headlight() + "\n" + BASE.taillight();
+    }
+    if (step === maxStep && HATCH_AUTO.has(drawing.id)) {
+      body += "\n" + crossHatch(120, 284, 8, 16, 8, 35) + "\n" + crossHatch(310, 282, 8, 16, 8, 35);
+    }
+    if (step === maxStep - 1 && OUTLINE_AUTO.has(drawing.id) && maxStep > 1) {
+      body += "\n" + BASE.outlineLight();
+    }
+    if (step === maxStep && FINAL_CONTOUR.has(drawing.id)) {
+      body += "\n" + BASE.contour();
+    }
     const name = `lesson-${String(drawing.id).padStart(2, "0")}-step-${String(step).padStart(2, "0")}.svg`;
-    writeFileSync(join(OUT_DIR, name), svgDoc(paper() + "\n" + body), "utf8");
+    writeFileSync(join(OUT_DIR, name), svgDoc(proUnderlay(drawing.id) + "\n" + body), "utf8");
     count++;
   }
 }
