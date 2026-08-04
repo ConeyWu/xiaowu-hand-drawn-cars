@@ -16,7 +16,7 @@ const GRID_MAJOR = "#9FB2CC";
 const CONSTRUCTION = "#6B8FC2";
 
 const DEFS = `<defs>
-<linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F3"/><stop offset="18%" stop-color="#E9E4D8"/><stop offset="55%" stop-color="#C9C2B2"/><stop offset="100%" stop-color="#9C9484"/></linearGradient>
+<linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F2"/><stop offset="22%" stop-color="#E8E2D4"/><stop offset="55%" stop-color="#C6BFAE"/><stop offset="82%" stop-color="#9A9283"/><stop offset="100%" stop-color="#7A7368"/></linearGradient>
 <linearGradient id="gGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#55585F"/><stop offset="100%" stop-color="#7B7F88"/></linearGradient>
 <radialGradient id="gTire" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#4A4E55"/><stop offset="75%" stop-color="#2D3036"/><stop offset="100%" stop-color="#202227"/></radialGradient>
 <radialGradient id="gRim" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#F3F2EC"/><stop offset="70%" stop-color="#C6C1B4"/><stop offset="100%" stop-color="#A39C8D"/></radialGradient>
@@ -138,9 +138,9 @@ const GROUND_Y = 329;
 const REAR_CX = 109;
 const FRONT_CX = 412;
 const BODY_D =
-  "M37.2 292.3 C37.2 292.3 58.8 203.0 109.2 188.6 C138.0 180.0 195.6 174.2 253.2 171.3 C310.8 174.2 354.0 180.0 382.8 194.4 C411.6 208.7 433.2 231.8 447.6 256.3 L462.0 277.9 L469.2 285.1 L469.2 299.5 L454.8 299.5 C454.8 275.0 434.6 256.3 411.6 256.3 C388.6 256.3 368.4 275.0 368.4 299.5 L152.4 299.5 C152.4 275.0 132.2 256.3 109.2 256.3 C86.2 256.3 66.0 275.0 66.0 299.5 L30.0 299.5 L30.0 292.3 Z";
+  "M34.0 292.3 C34.0 292.3 50.0 210.0 98.0 192.0 C136.0 182.0 200.0 174.0 252.0 171.0 C310.0 173.8 348.0 178.0 374.0 191.0 C396.0 201.0 428.0 206.0 474.0 214.0 C482.0 215.0 486.0 222.0 486.0 238.0 L486.0 274.0 C486.0 284.0 481.0 292.0 472.0 296.0 L472.0 299.5 L448.0 299.5 C448.0 278.0 432.0 258.0 412.0 258.0 C392.0 258.0 376.0 278.0 376.0 299.5 L145.0 299.5 C145.0 278.0 129.0 258.0 109.0 258.0 C89.0 258.0 73.0 278.0 73.0 299.5 L34.0 299.5 Z";
 const GLASS_D =
-  "M130.8 198.7 C159.6 188.6 210.0 181.4 267.6 180.0 C318.0 181.4 346.8 188.6 368.4 198.7 L356.9 241.9 L120.7 241.9 Z";
+  "M126.0 200.0 C170.0 189.0 216.0 183.0 256.0 181.6 C304.0 183.0 330.0 187.0 356.0 193.6 L346.0 238.0 L118.0 238.0 Z";
 
 function spokes(cx, cy, r = 17, w = 1.5) {
   const arms = [0, 45, 90, 135, 180, 225, 270, 315];
@@ -198,17 +198,22 @@ const BASE = {
     `<path d="M152 299 L368 299 L368 292 Q260 288 152 292 Z" fill="#8A8478" opacity="0.34"/>` +
     "\n" + hatch(230, 292, 6, 12, 8, 45),
   shoulder: () =>
-    strokePath("M66 256 Q250 240 434 256", 2.0, "#6E6A61") +
+    strokePath("M60 256 Q250 238 476 256", 2.0, "#6E6A61") +
     "\n" + strokePath("M66 248 Q250 232 434 248", 1.2, "#FBF9F3"),
   doorCut: () => path("M310 246 Q316 270 312 292", 1.0),
   handle: () => line(286, 252, 304, 251, 1.5, "#4A4E56"),
   mirror: () =>
     `<path d="M340 204 Q336 198 344 194 L352 194 Q356 199 352 203 Z" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>`,
   headlight: () =>
-    `<path d="M440 266 L466 264 L466 276 L444 278 Z" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` +
-    "\n" + strokePath("M444 270 L460 268", 1.1, "#FBF9F3"),
+    `<path d="M464 262 L486 260 L486 274 L466 276 Z" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>` +
+    "\n" + strokePath("M468 266 L482 264", 1.1, "#FBF9F3"),
   taillight: () =>
-    `<path d="M34 258 L44 256 L44 268 L32 270 Z" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>`,
+    `<path d="M36 258 L48 256 L48 268 L36 270 Z" fill="url(#gGlass)" stroke="#4A4D55" stroke-width="1.0"/>`,
+  hood: () =>
+    `<path d="M380 203 C400 211 432 216 478 223 L484 234 C456 228 418 222 382 218 Z" fill="#F2EDE2" stroke="none"/>` +
+    "\n" + strokePath("M380 203 C400 211 432 216 478 223", 1.5, INK) +
+    "\n" + strokePath("M386 209 C406 215 434 220 476 226", 1.8, "#FBF9F3") +
+    "\n" + strokePath("M480 226 C482 229 483 232 484 235", 1.0, INK_SOFT),
   fender: (cx) =>
     `<path d="M${cx - 36} 302 Q${cx} 280 ${cx + 36} 302" stroke="#8B8478" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.26"/>` +
     "\n" + `<path d="M${cx - 36} 302 Q${cx} 280 ${cx + 36} 302" ${stroke(1.4, INK)} fill="none"/>` +
@@ -674,7 +679,7 @@ for (const drawing of DRAWINGS) {
     const OUTLINE_AUTO = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 21, 22, 28]);
     const FINAL_CONTOUR = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 21, 22, 26, 27, 28]);
     if (step === maxStep && DETAIL_AUTO.has(drawing.id)) {
-      body += "\n" + BASE.doorCut() + "\n" + BASE.handle() + "\n" + BASE.mirror() + "\n" + BASE.headlight() + "\n" + BASE.taillight();
+      body += "\n" + BASE.doorCut() + "\n" + BASE.handle() + "\n" + BASE.mirror() + "\n" + BASE.headlight() + "\n" + BASE.taillight() + "\n" + BASE.hood();
     }
     if (step === maxStep && HATCH_AUTO.has(drawing.id)) {
       body += "\n" + crossHatch(120, 284, 8, 16, 8, 35) + "\n" + crossHatch(310, 282, 8, 16, 8, 35) + "\n" + BASE.finishShading();

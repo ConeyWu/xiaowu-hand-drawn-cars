@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">
 <defs>
-<linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F3"/><stop offset="18%" stop-color="#E9E4D8"/><stop offset="55%" stop-color="#C9C2B2"/><stop offset="100%" stop-color="#9C9484"/></linearGradient>
+<linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBF9F2"/><stop offset="22%" stop-color="#E8E2D4"/><stop offset="55%" stop-color="#C6BFAE"/><stop offset="82%" stop-color="#9A9283"/><stop offset="100%" stop-color="#7A7368"/></linearGradient>
 <linearGradient id="gGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#55585F"/><stop offset="100%" stop-color="#7B7F88"/></linearGradient>
 <radialGradient id="gTire" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#4A4E55"/><stop offset="75%" stop-color="#2D3036"/><stop offset="100%" stop-color="#202227"/></radialGradient>
 <radialGradient id="gRim" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#F3F2EC"/><stop offset="70%" stop-color="#C6C1B4"/><stop offset="100%" stop-color="#A39C8D"/></radialGradient>
