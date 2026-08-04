@@ -183,5 +183,5 @@
 <line x1="60" y1="200" x2="200" y2="200" stroke="#8B909B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="60" y1="216" x2="170" y2="216" stroke="#8B909B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="60" y1="232" x2="185" y2="232" stroke="#8B909B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">作品集排版</text>
+
 </svg>

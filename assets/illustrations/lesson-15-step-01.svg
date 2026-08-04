@@ -60,5 +60,5 @@
 <line x1="109" y1="300" x2="412" y2="300" stroke="#6B8FC2" stroke-width="0.8" stroke-dasharray="6 5" opacity="0.45"/>
 <path d="M30 40 L470 40 L470 165 L30 165 Z" stroke="#3A3C42" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" fill="#D9DDE4" fill-opacity="0.5"/>
 <line x1="30" y1="165" x2="470" y2="165" stroke="#8B909B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="60" y="80" text-anchor="middle" font-size="14" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">天空</text>
+
 </svg>

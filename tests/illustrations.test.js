@@ -48,6 +48,16 @@ test("每个步骤文件都存在、合法且非空", () => {
   });
 });
 
+test("32 张成品图存在且非空", () => {
+  const finalDir = join("assets", "final");
+  for (let n = 1; n <= 32; n++) {
+    const name = `lesson-${String(n).padStart(2, "0")}-final.png`;
+    const p = join(finalDir, name);
+    assert.ok(existsSync(p), `缺少 ${p}`);
+    assert.ok(readFileSync(p).length > 20000, `${name} 过小`);
+  }
+});
+
 test("重复运行不会产生额外文件", () => {
   runGenerator();
   runGenerator();

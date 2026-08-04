@@ -54,15 +54,15 @@
 <path d="M90 120 L114 120 L114 144 L90 144 Z" stroke="#3A3C42" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 <path d="M250 120 L274 120 L274 144 L250 144 Z" stroke="#3A3C42" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 <path d="M410 120 L434 120 L434 144 L410 144 Z" stroke="#3A3C42" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-<text x="102" y="166" text-anchor="middle" font-size="14" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">比例</text>
-<text x="262" y="166" text-anchor="middle" font-size="14" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">透视</text>
-<text x="422" y="166" text-anchor="middle" font-size="14" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">渲染</text>
+
+
+
 <path d="M90 120 L114 120 L114 144 L90 144 Z" stroke="#3A3C42" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 <path d="M250 120 L274 120 L274 144 L250 144 Z" stroke="#3A3C42" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 <path d="M410 120 L434 120 L434 144 L410 144 Z" stroke="#3A3C42" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-<text x="102" y="166" text-anchor="middle" font-size="14" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">比例</text>
-<text x="262" y="166" text-anchor="middle" font-size="14" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">透视</text>
-<text x="422" y="166" text-anchor="middle" font-size="14" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">渲染</text>
+
+
+
 <path d="M95 134 L101 140 L109 128" stroke="#3A3C42" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 <path d="M255 134 L261 140 L269 128" stroke="#3A3C42" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 <path d="M415 134 L421 140 L429 128" stroke="#3A3C42" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" />

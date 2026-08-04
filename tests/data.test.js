@@ -41,13 +41,18 @@ test("每课步骤数符合设计文档", () => {
   assert.deepEqual(counts, EXPECTED_STEP_COUNTS);
 });
 
-test("步骤插图路径格式正确", () => {
+test("步骤图路径正确：过程为 SVG，最后一步为成品 PNG", () => {
   for (const u of SITE_DATA.units) {
     for (const l of u.lessons) {
       const prefix = `assets/illustrations/lesson-${String(l.id).padStart(2, "0")}-step-`;
-      for (const s of l.steps) {
-        assert.match(s.art, new RegExp(`^${prefix}\\d{2}\\.svg$`));
-      }
+      const finalRe = new RegExp(`^assets/final/lesson-${String(l.id).padStart(2, "0")}-final\\.png$`);
+      l.steps.forEach((s, i) => {
+        if (i === l.steps.length - 1) {
+          assert.match(s.art, finalRe, `最后一步应为成品图: ${l.id}`);
+        } else {
+          assert.match(s.art, new RegExp(`^${prefix}\\d{2}\\.svg$`));
+        }
+      });
     }
   }
 });

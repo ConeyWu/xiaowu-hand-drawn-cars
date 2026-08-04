@@ -102,5 +102,5 @@
 <ellipse cx="412" cy="322" rx="26" ry="4.5" fill="#6E6A61" opacity="0.5"/>
 <line x1="60" y1="322" x2="480" y2="322" stroke="#6C707A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="96" y1="88" x2="178" y2="124" stroke="#8B8478" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="162.4" y1="124.8" x2="178" y2="124" stroke="#8B8478" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="168.0" y1="112.0" x2="178" y2="124" stroke="#8B8478" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="86" y="82" text-anchor="middle" font-size="14" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">光源</text>
+
 </svg>

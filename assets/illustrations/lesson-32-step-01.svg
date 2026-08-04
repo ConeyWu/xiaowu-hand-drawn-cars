@@ -82,6 +82,6 @@
 <path d="M82 342 L136 286" stroke="#B3483A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <path d="M136 342 L82 286" stroke="#B3483A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 <line x1="109" y1="282" x2="109" y2="262" stroke="#8B8478" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="116.0" y1="276.0" x2="109" y2="262" stroke="#8B8478" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="102.0" y1="276.0" x2="109" y2="262" stroke="#8B8478" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="250" y="60" text-anchor="middle" font-size="20" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">✗ 后轮掉到地面线以下</text>
-<text x="109" y="270" text-anchor="middle" font-size="13" font-family="'Microsoft YaHei', sans-serif" font-weight="600" fill="#3A3C42">轮心要在同一水平线</text>
+
+
 </svg>

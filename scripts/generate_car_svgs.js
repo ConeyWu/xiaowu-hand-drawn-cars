@@ -106,7 +106,8 @@ function proUnderlay(id) {
   return gridPaper() + "\n" + guides.join("\n");
 }
 function svgDoc(body) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">\n${DEFS}\n${body}\n</svg>\n`;
+  const clean = body.replace(/<text\b[^>]*>[\s\S]*?<\/text>/g, "");
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" role="img">\n${DEFS}\n${clean}\n</svg>\n`;
 }
 function rnd(i) {
   const x = Math.sin(i * 127.1 + 311.7) * 43758.5453;
@@ -252,6 +253,13 @@ const BASE = {
     "\n" + strokePath(BODY_D, 1.7, "#5B5E66") +
     "\n" + strokePath(BODY_D, 1.1, INK) +
     "\n" + strokePath("M66 256 Q250 240 434 256", 1.5, INK),
+  finishShading: () =>
+    softEllipse(250, 286, 205, 24, "#8A8478", 0.16) +
+    "\n" + crossHatch(130, 268, 10, 18, 6, 35) +
+    "\n" + crossHatch(300, 266, 10, 18, 6, 35) +
+    "\n" + crossHatch(100, 296, 5, 10, 6, 50) +
+    "\n" + crossHatch(403, 296, 5, 10, 6, 50) +
+    "\n" + hatch(150, 318, 8, 13, 6, 18),
   outlineLight: () =>
     strokePath(BODY_D, 1.9, INK) +
     "\n" + strokePath(BODY_D, 1.2, "#5B5E66"),
@@ -669,7 +677,7 @@ for (const drawing of DRAWINGS) {
       body += "\n" + BASE.doorCut() + "\n" + BASE.handle() + "\n" + BASE.mirror() + "\n" + BASE.headlight() + "\n" + BASE.taillight();
     }
     if (step === maxStep && HATCH_AUTO.has(drawing.id)) {
-      body += "\n" + crossHatch(120, 284, 8, 16, 8, 35) + "\n" + crossHatch(310, 282, 8, 16, 8, 35);
+      body += "\n" + crossHatch(120, 284, 8, 16, 8, 35) + "\n" + crossHatch(310, 282, 8, 16, 8, 35) + "\n" + BASE.finishShading();
     }
     if (step === maxStep - 1 && OUTLINE_AUTO.has(drawing.id) && maxStep > 1) {
       body += "\n" + BASE.outlineLight();
