@@ -81,7 +81,7 @@ test("课程页渲染步骤并支持打卡写入进度", async () => {
   initApp();
   const pageEl = elements["lesson-page"];
   assert.ok(pageEl.innerHTML.includes("汽车比例系统"));
-  assert.ok(pageEl.innerHTML.includes("用轻线画两个等大的轮径圆 D——它是整张图的比例尺"));
+  assert.ok(pageEl.innerHTML.includes("起形：用轻线画比例框、轮圆 D 与中心线"));
   assert.equal(count(pageEl.innerHTML, 'class="step"'), 5);
   assert.ok(pageEl.innerHTML.includes("完成本节"));
   assert.deepEqual(storage.getItem("xiaowu.completedLessons"), null);

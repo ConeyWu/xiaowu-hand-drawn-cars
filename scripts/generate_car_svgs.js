@@ -131,6 +131,66 @@ function crossHatch(x, y, n, len, gap, angleDeg = 45) {
   return hatch(x, y, n, len, gap, angleDeg) + "\n" + hatch(x + gap * 0.5, y + gap * 0.5, n, len, gap, -angleDeg);
 }
 
+// ============ 素描五步法（起形/轮廓/大调子/深入/完成） ============
+function constructionFrame() {
+  return (
+    `<line x1="42" y1="166" x2="482" y2="166" stroke="${CONSTRUCTION}" stroke-width="1.0" stroke-dasharray="9 7" opacity="0.75"/>` +
+    "\n" + `<line x1="42" y1="306" x2="482" y2="306" stroke="${CONSTRUCTION}" stroke-width="1.0" stroke-dasharray="9 7" opacity="0.75"/>` +
+    "\n" + `<line x1="42" y1="166" x2="42" y2="306" stroke="${CONSTRUCTION}" stroke-width="1.0" stroke-dasharray="9 7" opacity="0.75"/>` +
+    "\n" + `<line x1="482" y1="166" x2="482" y2="306" stroke="${CONSTRUCTION}" stroke-width="1.0" stroke-dasharray="9 7" opacity="0.75"/>` +
+    "\n" + lightArrow(72, 92, 148, 122)
+  );
+}
+function inkWheelCircles() {
+  const out = [];
+  for (const cx of [REAR_CX, FRONT_CX]) {
+    out.push(`<circle cx="${cx}" cy="${WHEEL_CY}" r="${WHEEL_R}" stroke="${INK_SOFT}" stroke-width="1.2" fill="none"/>`);
+    out.push(`<line x1="${cx - 30}" y1="${WHEEL_CY}" x2="${cx + 30}" y2="${WHEEL_CY}" stroke="${INK_SOFT}" stroke-width="0.8"/>`);
+    out.push(`<line x1="${cx}" y1="${WHEEL_CY - 30}" x2="${cx}" y2="${WHEEL_CY + 30}" stroke="${INK_SOFT}" stroke-width="0.8"/>`);
+  }
+  return out.join("\n");
+}
+const TONAL_S1 = () => constructionFrame();
+const TONAL_S2 = () =>
+  TONAL_S1() +
+  "\n" + rough(BODY_D, 1.4) +
+  "\n" + strokePath(GLASS_D, 1.0, INK_SOFT) +
+  "\n" + inkWheelCircles();
+const TONAL_S3 = () =>
+  TONAL_S2() +
+  "\n" + `<path d="${BODY_D}" fill="#D8D2C4" opacity="0.55"/>` +
+  "\n" + softEllipse(260, 290, 205, 32, "#8A8478", 0.30) +
+  "\n" + `<ellipse cx="${REAR_CX}" cy="300" rx="31" ry="21" fill="#6E6A61" opacity="0.30"/>` +
+  "\n" + `<ellipse cx="${FRONT_CX}" cy="300" rx="31" ry="21" fill="#6E6A61" opacity="0.30"/>` +
+  "\n" + `<ellipse cx="250" cy="332" rx="220" ry="12" fill="url(#gGround)"/>` +
+  "\n" + `<path d="${GLASS_D}" fill="#8B8F98" opacity="0.35"/>`;
+const TONAL_S4 = () =>
+  TONAL_S3() +
+  "\n" + `<path d="${BODY_D}" fill="url(#gBody)"/>` +
+  "\n" + BASE.glass() +
+  "\n" + BASE.wheel(REAR_CX) + "\n" + BASE.wheel(FRONT_CX) +
+  "\n" + BASE.fenders() +
+  "\n" + BASE.rocker() +
+  "\n" + BASE.shoulder() +
+  "\n" + BASE.doorCut() + "\n" + BASE.handle() + "\n" + BASE.mirror() +
+  "\n" + BASE.headlight() + "\n" + BASE.taillight() +
+  "\n" + BASE.hood();
+const TONAL_S5 = () =>
+  TONAL_S4() +
+  "\n" + crossHatch(130, 268, 10, 18, 6, 35) +
+  "\n" + crossHatch(300, 266, 10, 18, 6, 35) +
+  "\n" + BASE.finishShading() +
+  "\n" + BASE.contour();
+function tonalElements(id) {
+  return [
+    { firstStep: 1, svg: TONAL_S1() },
+    { firstStep: 2, svg: TONAL_S2() },
+    { firstStep: 3, svg: TONAL_S3() },
+    { firstStep: 4, svg: TONAL_S4() },
+    { firstStep: 5, svg: TONAL_S5() },
+  ];
+}
+
 // ============ 真实车型底稿（紧凑型电动轿车，坐标已换算到 500x360） ============
 const WHEEL_R = 29;
 const WHEEL_CY = 300;
@@ -671,23 +731,25 @@ const DRAWINGS = [
 mkdirSync(OUT_DIR, { recursive: true });
 let count = 0;
 for (const drawing of DRAWINGS) {
-  const maxStep = Math.max(...drawing.elements.map((e) => e.firstStep));
+  const TONAL_TEMPLATE = new Set([1, 2, 3, 4]);
+  const elements = TONAL_TEMPLATE.has(drawing.id) ? tonalElements(drawing.id) : drawing.elements;
+  const maxStep = Math.max(...elements.map((e) => e.firstStep));
   for (let step = 1; step <= maxStep; step++) {
-    let body = drawing.elements.filter((e) => e.firstStep <= step).map((e) => e.svg).join("\n");
-    const DETAIL_AUTO = new Set([1, 2, 3, 4, 5, 6, 13, 14, 15, 22]);
+    let body = elements.filter((e) => e.firstStep <= step).map((e) => e.svg).join("\n");
+    const DETAIL_AUTO = new Set([5, 6, 13, 14, 15, 22]);
     const HATCH_AUTO = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
     const OUTLINE_AUTO = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 21, 22, 28]);
-    const FINAL_CONTOUR = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 21, 22, 26, 27, 28]);
-    if (step === maxStep && DETAIL_AUTO.has(drawing.id)) {
+    const FINAL_CONTOUR = new Set([5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 21, 22, 26, 27, 28]);
+    if (!TONAL_TEMPLATE.has(drawing.id) && step === maxStep && DETAIL_AUTO.has(drawing.id)) {
       body += "\n" + BASE.doorCut() + "\n" + BASE.handle() + "\n" + BASE.mirror() + "\n" + BASE.headlight() + "\n" + BASE.taillight() + "\n" + BASE.hood();
     }
-    if (step === maxStep && HATCH_AUTO.has(drawing.id)) {
+    if (!TONAL_TEMPLATE.has(drawing.id) && step === maxStep && HATCH_AUTO.has(drawing.id)) {
       body += "\n" + crossHatch(120, 284, 8, 16, 8, 35) + "\n" + crossHatch(310, 282, 8, 16, 8, 35) + "\n" + BASE.finishShading();
     }
-    if (step === maxStep - 1 && OUTLINE_AUTO.has(drawing.id) && maxStep > 1) {
+    if (!TONAL_TEMPLATE.has(drawing.id) && step === maxStep - 1 && OUTLINE_AUTO.has(drawing.id) && maxStep > 1) {
       body += "\n" + BASE.outlineLight();
     }
-    if (step === maxStep && FINAL_CONTOUR.has(drawing.id)) {
+    if (!TONAL_TEMPLATE.has(drawing.id) && step === maxStep && FINAL_CONTOUR.has(drawing.id)) {
       body += "\n" + BASE.contour();
     }
     const name = `lesson-${String(drawing.id).padStart(2, "0")}-step-${String(step).padStart(2, "0")}.svg`;
