@@ -47,3 +47,14 @@ test("已完成课程显示完成态按钮", () => {
   assert.ok(html.includes("disabled"));
   assert.ok(html.includes("已完成"));
 });
+test("课程页包含大师示范跟画面板（两段视频与五步清单）", () => {
+  const lesson = SITE_DATA.units[0].lessons[0];
+  const next = SITE_DATA.units[0].lessons[1];
+  const html = lessonPageHTML(lesson, null, next, false);
+  assert.ok(html.includes("跟画步骤"), "课程页应有跟画步骤面板");
+  assert.ok(html.includes("BV1xt411Z7Rn"), "应内嵌线稿速写示范视频");
+  assert.ok(html.includes("BV1pQ4y1R7UV"), "应内嵌几何体起型示范视频");
+  assert.ok(html.includes("master.html"), "应链接到大师示范页");
+  assert.ok(html.includes("几何起型"), "清单应包含几何起型");
+  assert.ok(html.includes("成品图"), "应提示对照成品图");
+});

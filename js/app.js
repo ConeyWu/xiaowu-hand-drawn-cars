@@ -39,6 +39,34 @@ export function lessonPageHTML(lesson, prev, next, isComplete) {
     <img src="assets/reference/reference-drawing.jpg" alt="专业手绘汽车范例" loading="lazy">
     <figcaption>专业手绘范例 · 画之前先观察它的比例和线条</figcaption>
   </figure>`;
+  const followPanelHTML = `
+  <section class="follow-panel">
+    <h2>🎬 跟画步骤 · 先看大师示范</h2>
+    <p class="follow-intro">和视频里一样：从几何体开始，一步步画到成品。每看一段就暂停，跟着画一遍。</p>
+    <div class="follow-videos">
+      <figure class="follow-video">
+        <div class="demo-video">
+          <iframe src="//player.bilibili.com/player.html?bvid=BV1xt411Z7Rn&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" title="汽车手绘速写示范"></iframe>
+        </div>
+        <figcaption>示范一 · 铅笔线稿速写</figcaption>
+      </figure>
+      <figure class="follow-video">
+        <div class="demo-video">
+          <iframe src="//player.bilibili.com/player.html?bvid=BV1pQ4y1R7UV&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" title="从几何体开始画车"></iframe>
+        </div>
+        <figcaption>示范二 · 从几何体开始画车</figcaption>
+      </figure>
+    </div>
+    <ol class="follow-check">
+      <li>几何起型：先用矩形/长方体搭车身骨架，画轮圆和地面线</li>
+      <li>大轮廓：用轻线勾车身外轮廓，先不管细节</li>
+      <li>座舱比例：加车窗和座舱，检查整车比例与姿态</li>
+      <li>分件细节：画保险杠、轮拱、门缝等分件线</li>
+      <li>完成成品：加重关键轮廓线收尾，对照本课成品图</li>
+    </ol>
+    <a class="btn" href="master.html">打开大师示范页 →</a>
+  </section>
+`;
   const stepsHTML = lesson.steps
     .map(
       (s, i) => `
@@ -67,6 +95,7 @@ export function lessonPageHTML(lesson, prev, next, isComplete) {
       <h1>第 ${lesson.id} 课 · ${lesson.title}</h1>
       <p class="goal">🎯 ${lesson.goal}</p>
     </header>
+    ${followPanelHTML}
     <ol class="steps">${stepsHTML}</ol>
     ${tipsHTML}
     <div class="lesson-actions">${actionBtn}</div>
