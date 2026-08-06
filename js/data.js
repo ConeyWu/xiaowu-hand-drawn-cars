@@ -9,8 +9,8 @@ export const SITE_DATA = {
       steps: [
         { caption: "第 1 步 · 起稿定位", art: "assets/new/front/step-01.png" },
         { caption: "第 2 步 · 车身与前脸轮廓", art: "assets/new/front/step-02.png" },
-        { caption: "第 3 步 · 格栅、车灯与细节", art: "assets/new/front/step-03.png" },
-        { caption: "第 4 步 · 线条整理", art: "assets/new/front/step-04.png" },
+        { caption: "第 3 步 · 线条整理", art: "assets/new/front/step-04.png" },
+        { caption: "第 4 步 · 格栅、车灯与细节", art: "assets/new/front/step-03.png" },
         { caption: "成品图", art: "assets/new/front/final.png" }
       ],
       tips: ["正视图先定中轴与左右对称", "前脸的重点是比例和层次，不是细节", "画完用中轴检查左右是否对称"]

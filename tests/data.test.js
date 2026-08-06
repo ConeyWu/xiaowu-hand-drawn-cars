@@ -24,6 +24,9 @@ test("每门课程字段完整且最后一步为成品图", () => {
     assert.match(c.steps[c.steps.length - 1].art, /final\.png$/, `${c.id} 最后一步应为成品图`);
     assert.ok(Array.isArray(c.tips) && c.tips.length > 0);
   }
+  const front = SITE_DATA.courses.find((c) => c.id === "front");
+  assert.equal(front.steps[2].caption, "第 3 步 · 线条整理");
+  assert.equal(front.steps[3].caption, "第 4 步 · 格栅、车灯与细节");
 });
 
 test("流行车辆：尊界、问界各三视图", () => {
