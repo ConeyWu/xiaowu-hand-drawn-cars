@@ -26,6 +26,7 @@ function setupDom(page, search = "") {
       if (!elements[id]) {
         elements[id] = {
           innerHTML: "",
+          addEventListener: (evt, cb) => { (listeners[evt] = listeners[evt] || []).push(cb); },
           querySelector: (sel) => {
             if (sel === '[data-action="complete"]') {
               return { addEventListener: (evt, cb) => { clickHandler = cb; } };

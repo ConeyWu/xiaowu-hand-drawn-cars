@@ -278,8 +278,8 @@ img { display: block; max-width: 100%; }
   margin-top: 12px;
   width: 100%;
   border-radius: 14px;
-  object-fit: cover;
-  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  aspect-ratio: 4 / 3;
   background: #F1E9DB;
 }
 .view-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -292,6 +292,21 @@ img { display: block; max-width: 100%; }
 }
 .view-card img { width: 100%; border-radius: 14px; }
 .view-card figcaption { margin-top: 8px; font-size: 16px; font-weight: 700; color: var(--sky-dark); }
+
+.view-card img { cursor: zoom-in; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 18, 24, 0.92);
+  cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 8px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
+.lightbox-close { position: absolute; top: 18px; right: 26px; color: #fff; font-size: 44px; line-height: 1; cursor: pointer; user-select: none; }
 
 @media (max-width: 900px) {
   .lesson-grid { grid-template-columns: 1fr; }

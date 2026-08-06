@@ -84,9 +84,9 @@ export function popularPageHTML(popular) {
         ${car.views
           .map(
             (v) => `
-        <figure class="view-card">
+        <figure class="view-card" data-view="${v.art}" data-name="${car.name} · ${v.name}">
           <img src="${v.art}" alt="${car.name}${v.name}" loading="lazy">
-          <figcaption>${v.name}</figcaption>
+          <figcaption>${v.name} · 点击看大图</figcaption>
         </figure>`
           )
           .join("")}
@@ -96,6 +96,21 @@ export function popularPageHTML(popular) {
     .join("");
 }
 
+function openLightbox(src, name) {
+  let lb = document.getElementById("xiaowu-lightbox");
+  if (!lb) {
+    lb = document.createElement("div");
+    lb.id = "xiaowu-lightbox";
+    lb.className = "lightbox";
+    lb.innerHTML = '<img alt="大图预览"><span class="lightbox-close">×</span>';
+    lb.addEventListener("click", () => { lb.classList.remove("open"); });
+    document.body.appendChild(lb);
+  }
+  const img = lb.querySelector("img");
+  img.src = src;
+  img.alt = name || "大图";
+  lb.classList.add("open");
+}
 export function initApp() {
   if (typeof document === "undefined") return;
   const page = document.body.dataset.page;
@@ -130,7 +145,13 @@ export function initApp() {
     });
   } else if (page === "popular") {
     const list = document.getElementById("popular-list");
-    if (list) list.innerHTML = popularPageHTML(SITE_DATA.popular);
+    if (list) {
+      list.innerHTML = popularPageHTML(SITE_DATA.popular);
+      list.addEventListener("click", (e) => {
+        const fig = e.target.closest("[data-view]");
+        if (fig) openLightbox(fig.dataset.view, fig.dataset.name);
+      });
+    }
   }
 }
 

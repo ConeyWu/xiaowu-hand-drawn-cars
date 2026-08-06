@@ -37,6 +37,8 @@ test("流行车辆页渲染尊界与问界的三视图", () => {
   assert.ok(html.includes("尊界"));
   assert.ok(html.includes("问界"));
   assert.equal((html.match(/class="view-card"/g) || []).length, 6);
+  assert.equal((html.match(/data-view="/g) || []).length, 6, "每张三视图应可点击看大图");
+  assert.equal((html.match(/data-view="/g) || []).length, 6, "每张三视图应可点击看大图");
 });
 
 test("流行车辆卡片包含车名与封面", () => {
