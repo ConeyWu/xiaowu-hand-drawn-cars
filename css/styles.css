@@ -222,7 +222,7 @@ img { display: block; max-width: 100%; }
 .demo-credit a:hover { text-decoration: underline; }
 .demo-video {
   position: relative;
-  aspect-ratio: 16 / 9;
+  padding-top: 56.25%;
   margin-top: 14px;
   border-radius: 14px;
   overflow: hidden;
@@ -280,6 +280,7 @@ img { display: block; max-width: 100%; }
   border-radius: 14px;
   object-fit: contain;
   aspect-ratio: 4 / 3;
+  min-height: 240px;
   background: #fff;
 }
 .view-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
