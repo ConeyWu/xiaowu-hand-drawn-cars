@@ -21,7 +21,7 @@ test("每门课程字段完整且最后一步为成品图", () => {
       assert.ok(s.caption);
       assert.ok(s.art);
     }
-    assert.match(c.steps[c.steps.length - 1].art, /final\.png$/, `${c.id} 最后一步应为成品图`);
+    assert.match(c.steps[c.steps.length - 1].art, /final\.(png|webp)$/, `${c.id} 最后一步应为成品图`);
     assert.ok(Array.isArray(c.tips) && c.tips.length > 0);
   }
   const front = SITE_DATA.courses.find((c) => c.id === "front");

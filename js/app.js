@@ -15,7 +15,7 @@ export function courseCardHTML(course, isComplete) {
     </div>
     <h3>${course.title}</h3>
     <p>${course.goal}</p>
-    <img class="course-cover" src="${last.art}" alt="${course.title}成品图" loading="lazy">
+    <img class="course-cover" src="${last.art}" alt="${course.title}成品图" loading="lazy" decoding="async">
   </a>`;
 }
 
@@ -30,7 +30,7 @@ export function popularCardHTML(car) {
     <div class="lesson-card-head"><span class="lesson-num">流行车辆</span></div>
     <h3>${car.name}</h3>
     <p>${car.note}</p>
-    <img class="course-cover" src="${side.art}" alt="${car.name}侧视图" loading="lazy">
+    <img class="course-cover" src="${side.art}" alt="${car.name}侧视图" loading="lazy" decoding="async">
   </a>`;
 }
 
@@ -45,7 +45,7 @@ export function coursePageHTML(course, prev, next, isComplete) {
     <li class="step">
       <span class="step-num">${i === course.steps.length - 1 ? "成品图" : `第 ${i + 1} 步`}</span>
       <figure class="step-figure">
-        <img src="${s.art}" alt="${s.caption}" loading="lazy">
+        <img src="${s.art}" alt="${s.caption}" loading="lazy" decoding="async">
         <figcaption>${s.caption}</figcaption>
       </figure>
     </li>`
@@ -85,7 +85,7 @@ export function popularPageHTML(popular) {
           .map(
             (v) => `
         <figure class="view-card" data-view="${v.art}" data-name="${car.name} · ${v.name}">
-          <img src="${v.art}" alt="${car.name}${v.name}" loading="lazy">
+          <img src="${v.art}" alt="${car.name}${v.name}" loading="lazy" decoding="async">
           <figcaption>${v.name} · 点击看大图</figcaption>
         </figure>`
           )
