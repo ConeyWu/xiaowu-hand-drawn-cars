@@ -45,43 +45,38 @@ function count(html, marker) {
   return (html.match(new RegExp(marker, "g")) || []).length;
 }
 
-test("首页渲染 7 个单元、32 张课程卡片", async () => {
+test("首页渲染三大栏目：5 门课程 + 2 辆流行车", async () => {
   const { elements } = setupDom("home");
   const { initApp } = await import("../js/app.js");
   initApp();
-  const html = elements["unit-map"].innerHTML;
-  assert.ok(html.includes("单元一 · 比例与结构"));
-  assert.ok(html.includes("单元二 · 透视与视角"));
-  assert.ok(html.includes("单元三 · 新能源设计语言"));
-  assert.ok(html.includes("单元四 · 渲染与表现"));
-  assert.ok(html.includes("单元五 · 创作与作品集"));
-  assert.ok(html.includes("单元六 · 写生与材质"));
-  assert.ok(html.includes("单元七 · 专业技法与进阶"));
-  assert.equal(count(html, 'class="lesson-card"'), 32);
-  assert.equal(count(html, "0/4"), 5);
-  assert.equal(count(html, "0/5"), 1);
-  assert.equal(count(html, "0/7"), 1);
+  const courses = elements["course-grid"].innerHTML;
+  assert.equal(count(courses, 'class="lesson-card course-card"'), 5);
+  assert.ok(courses.includes("正视图"));
+  assert.ok(courses.includes("侧视图"));
+  assert.ok(courses.includes("后视图"));
+  assert.ok(courses.includes("斜视图"));
+  assert.ok(courses.includes("舱内图"));
+  const popular = elements["popular-grid"].innerHTML;
+  assert.equal(count(popular, 'class="lesson-card popular-card"'), 2);
+  assert.ok(popular.includes("尊界"));
+  assert.ok(popular.includes("问界"));
 });
 
-test("课程列表页渲染 32 张卡片", async () => {
+test("课程列表页渲染 5 张课程卡片", async () => {
   const { elements } = setupDom("lessons");
   const { initApp } = await import("../js/app.js");
   initApp();
-  const html = elements["lesson-list"].innerHTML;
-  assert.equal(count(html, 'class="lesson-card"'), 32);
-  assert.ok(html.includes("概念车创作"));
-  assert.ok(html.includes("实车写生·线稿"));
-  assert.ok(html.includes("考前作品集标准"));
-  assert.ok(html.includes("透视查漏·常见错误诊所"));
+  const html = elements["course-list"].innerHTML;
+  assert.equal(count(html, 'class="lesson-card course-card"'), 5);
 });
 
 test("课程页渲染步骤并支持打卡写入进度", async () => {
-  const { storage, elements, getClickHandler } = setupDom("lesson", "?id=1");
+  const { storage, elements, getClickHandler } = setupDom("course", "?view=front");
   const { initApp } = await import("../js/app.js");
   initApp();
-  const pageEl = elements["lesson-page"];
-  assert.ok(pageEl.innerHTML.includes("汽车比例系统"));
-  assert.ok(pageEl.innerHTML.includes("起形：用轻线画比例框、轮圆 D 与中心线"));
+  const pageEl = elements["course-page"];
+  assert.ok(pageEl.innerHTML.includes("正视图课程"));
+  assert.ok(pageEl.innerHTML.includes("成品图"));
   assert.equal(count(pageEl.innerHTML, 'class="step"'), 5);
   assert.ok(pageEl.innerHTML.includes("完成本节"));
   assert.deepEqual(storage.getItem("xiaowu.completedLessons"), null);
@@ -89,35 +84,36 @@ test("课程页渲染步骤并支持打卡写入进度", async () => {
   const click = getClickHandler();
   assert.ok(click, "打卡按钮应有事件监听");
   click();
-  assert.deepEqual(JSON.parse(storage.getItem("xiaowu.completedLessons")), [1]);
+  assert.deepEqual(JSON.parse(storage.getItem("xiaowu.completedLessons")), ["front"]);
   assert.ok(pageEl.innerHTML.includes("已完成"));
   assert.ok(pageEl.innerHTML.includes("disabled"));
 });
 
-test("不存在的课程 id 跳回课程列表", async () => {
-  setupDom("lesson", "?id=99");
+test("不存在的课程 view 跳回课程列表", async () => {
+  setupDom("course", "?view=nope");
   const { initApp } = await import("../js/app.js");
   initApp();
   assert.equal(globalThis.window.location.href, "lessons.html");
 });
 
-test("完成一个单元后首页点亮徽章", async () => {
-  const { storage, elements } = setupDom("home");
+test("流行车辆页渲染尊界与问界三视图", async () => {
+  const { elements } = setupDom("popular");
   const { initApp } = await import("../js/app.js");
-  storage.setItem("xiaowu.completedLessons", JSON.stringify([1, 2, 3, 4]));
   initApp();
-  const html = elements["unit-map"].innerHTML;
-  assert.ok(html.includes("🏆 单元完成！"));
-  assert.ok(!html.includes("4/4"), "完成单元不再显示数字进度");
-  assert.equal(count(html, "0/4"), 4);
+  const html = elements["popular-list"].innerHTML;
+  assert.equal(count(html, 'class="view-card"'), 6);
+  assert.ok(html.includes("尊界"));
+  assert.ok(html.includes("问界"));
+  assert.ok(html.includes("正视图"));
+  assert.ok(html.includes("后视图"));
+  assert.ok(html.includes("侧视图"));
 });
 
-test("全部课程完成后总进度到位", async () => {
+test("完成一门课程后首页显示已完成", async () => {
   const { storage, elements } = setupDom("home");
   const { initApp } = await import("../js/app.js");
-  storage.setItem("xiaowu.completedLessons", JSON.stringify(Array.from({ length: 20 }, (_, i) => i + 1)));
+  storage.setItem("xiaowu.completedLessons", JSON.stringify(["front"]));
   initApp();
-  const html = elements["unit-map"].innerHTML;
-  assert.equal(count(html, "🏆 单元完成！"), 5);
-  assert.equal(count(html, "0/4"), 0);
+  const html = elements["course-grid"].innerHTML;
+  assert.ok(html.includes("✓ 已完成"));
 });

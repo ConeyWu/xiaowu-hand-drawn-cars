@@ -1,459 +1,105 @@
-// 课程数据：小吴手绘汽车（汽车设计手绘预科 · 20 课）
+// 课程数据：小吴手绘汽车（重构版：五视角课程 + 流行车辆手绘）
 export const SITE_DATA = {
   siteName: "小吴手绘汽车",
-  units: [
+  courses: [
     {
-      id: "unit-1",
-      title: "单元一 · 比例与结构",
-      lessons: [
-        {
-          id: 1,
-          title: "汽车比例系统",
-          goal: "用轮径 D 作为基准尺，精确控制车长、轴距、车高与悬垂。",
-          steps: [
-            { caption: "起形：用轻线画比例框、轮圆 D 与中心线", art: "assets/illustrations/lesson-01-step-01.svg" },
-            { caption: "轮廓：沿着比例框勾出车身大形与玻璃", art: "assets/illustrations/lesson-01-step-02.svg" },
-            { caption: "大调子：铺车身底色，压出下部阴影与地面投影", art: "assets/illustrations/lesson-01-step-03.svg" },
-            { caption: "深入：车身渐变、机盖面板、轮毂与门缝细节", art: "assets/illustrations/lesson-01-step-04.svg" },
-            { caption: "完成：加重轮廓、排线收尾，得到成品素描", art: "assets/final/lesson-01-final.png" },
-          ],
-          tips: ["比例是设计的骨架，先定 D 再画细节", "轴距≈4.3D、前悬≈1.27D、后悬≈1.46D，画完用 D 量一遍", "同一比例可以画轿车、SUV、跑车，只是数值微调"],
-        },
-        {
-          id: 2,
-          title: "透视基础",
-          goal: "理解视平线、消失点与地面投影，让车稳稳立在纸面上。",
-          steps: [
-            { caption: "起形：画视平线、地面线、轮圆与消失方向", art: "assets/illustrations/lesson-02-step-01.svg" },
-            { caption: "轮廓：透视盒与车身大形", art: "assets/illustrations/lesson-02-step-02.svg" },
-            { caption: "大调子：暗部、轮拱与地面投影", art: "assets/illustrations/lesson-02-step-03.svg" },
-            { caption: "深入：玻璃、轮子与结构线", art: "assets/illustrations/lesson-02-step-04.svg" },
-            { caption: "完成：统一透视检查，排线完成", art: "assets/final/lesson-02-final.png" },
-          ],
-          tips: ["视平线越高，看到的车顶越多", "透视椭圆的长轴永远是水平的", "所有平行线要交到同一个消失点"],
-        },
-        {
-          id: 3,
-          title: "侧视造型",
-          goal: "从真实轮廓出发，练习腰线、座舱与悬垂的姿态控制。",
-          steps: [
-            { caption: "起形：比例框、轮距与姿态线", art: "assets/illustrations/lesson-03-step-01.svg" },
-            { caption: "轮廓：整体轮廓与座舱位置", art: "assets/illustrations/lesson-03-step-02.svg" },
-            { caption: "大调子：侧裙阴影与地面投影", art: "assets/illustrations/lesson-03-step-03.svg" },
-            { caption: "深入：腰线、机盖与轮毂细节", art: "assets/illustrations/lesson-03-step-04.svg" },
-            { caption: "完成：加重轮廓、排线完成", art: "assets/final/lesson-03-final.png" },
-          ],
-          tips: ["腰线是侧视的灵魂线，先轻后重", "轮拱越贴近车轮，姿态越有运动感", "A 柱倾斜决定整车的性格"],
-        },
-        {
-          id: 4,
-          title: "线稿质量控制",
-          goal: "掌握握笔运笔、长线一笔过，区分结构线、造型线与分件线。",
-          steps: [
-            { caption: "起形：轻结构线定位比例", art: "assets/illustrations/lesson-04-step-01.svg" },
-            { caption: "轮廓：一笔勾出车身大形", art: "assets/illustrations/lesson-04-step-02.svg" },
-            { caption: "大调子：分面铺调子", art: "assets/illustrations/lesson-04-step-03.svg" },
-            { caption: "深入：分件线、转折与细节", art: "assets/illustrations/lesson-04-step-04.svg" },
-            { caption: "完成：收线定型，得到成品素描", art: "assets/final/lesson-04-final.png" },
-          ],
-          tips: ["画长线用手臂发力，不要用手腕", "先轻后重：轻线找形，重线定型", "线稿的干净来自'少改'，不是'重画'"],
-        },
+      id: "front",
+      title: "正视图",
+      goal: "从正面掌握汽车比例与前脸造型",
+      steps: [
+        { caption: "第 1 步 · 起稿定位", art: "assets/new/front/step-01.png" },
+        { caption: "第 2 步 · 车身与前脸轮廓", art: "assets/new/front/step-02.png" },
+        { caption: "第 3 步 · 格栅、车灯与细节", art: "assets/new/front/step-03.png" },
+        { caption: "第 4 步 · 线条整理", art: "assets/new/front/step-04.png" },
+        { caption: "成品图", art: "assets/new/front/final.png" }
       ],
+      tips: ["正视图先定中轴与左右对称", "前脸的重点是比例和层次，不是细节", "画完用中轴检查左右是否对称"]
     },
     {
-      id: "unit-2",
-      title: "单元二 · 透视与视角",
-      lessons: [
-        {
-          id: 5,
-          title: "一点透视基础",
-          goal: "掌握一点透视的视平线、消失点与透视盒画法。",
-          steps: [
-            { caption: "画视平线与一个消失点（VP）", art: "assets/illustrations/lesson-05-step-01.svg" },
-            { caption: "画透视盒：先定离你最近的大面", art: "assets/illustrations/lesson-05-step-02.svg" },
-            { caption: "所有纵深线收向消失点", art: "assets/illustrations/lesson-05-step-03.svg" },
-            { caption: "把车身轮廓放进透视盒校形", art: "assets/final/lesson-05-final.png" },
-          ],
-          tips: ["消失点放在画面内，透视会更自然", "先盒子后车身，避免比例失控"],
-        },
-        {
-          id: 6,
-          title: "轮子透视椭圆",
-          goal: "画出前后轮的透视椭圆，让轮子符合地面透视。",
-          steps: [
-            { caption: "前轮透视椭圆：长轴水平，先画十字线", art: "assets/illustrations/lesson-06-step-01.svg" },
-            { caption: "后轮椭圆更小更扁，体现近大远小", art: "assets/illustrations/lesson-06-step-02.svg" },
-            { caption: "连接两轮轮心，检查轴距透视", art: "assets/illustrations/lesson-06-step-03.svg" },
-            { caption: "加轮拱，让椭圆嵌进车身", art: "assets/illustrations/lesson-06-step-04.svg" },
-            { caption: "画地面投影，校验椭圆角度", art: "assets/final/lesson-06-final.png" },
-          ],
-          tips: ["椭圆长轴永远水平，两端永远对称", "前后轮的大小差就是透视深度", "轮子画不好，整台车就'浮'起来"],
-        },
-        {
-          id: 7,
-          title: "3/4 前视角",
-          goal: "掌握设计稿最常用的 3/4 前视角：前脸与侧面同时可见。",
-          steps: [
-            { caption: "画透视盒：定视平线与消失方向", art: "assets/illustrations/lesson-07-step-01.svg" },
-            { caption: "前脸梯形与侧面的透视关系要对上", art: "assets/illustrations/lesson-07-step-02.svg" },
-            { caption: "轮子透视椭圆与轮拱", art: "assets/illustrations/lesson-07-step-03.svg" },
-            { caption: "灯组与前脸曲面，先体后线", art: "assets/illustrations/lesson-07-step-04.svg" },
-            { caption: "检查透视后完成 3/4 前视角线稿", art: "assets/final/lesson-07-final.png" },
-          ],
-          tips: ["3/4 视角同时看到前脸和侧面两个面", "轮子椭圆长轴的角度决定透视强度", "先画轮子再画车身，最不容易翻车"],
-        },
-        {
-          id: 8,
-          title: "3/4 后视角",
-          goal: "掌握 3/4 后视角：尾灯、尾部曲面与对称关系。",
-          steps: [
-            { caption: "画尾部透视盒与地面线，定对称轴", art: "assets/illustrations/lesson-08-step-01.svg" },
-            { caption: "后窗与 C 柱的倾斜", art: "assets/illustrations/lesson-08-step-02.svg" },
-            { caption: "贯穿式尾灯与牌照区保持左右对称", art: "assets/illustrations/lesson-08-step-03.svg" },
-            { caption: "尾部曲面与扩散器", art: "assets/illustrations/lesson-08-step-04.svg" },
-            { caption: "检查对称后完成 3/4 后视角线稿", art: "assets/final/lesson-08-final.png" },
-          ],
-          tips: ["车尾是对称的：左右灯、左右轮要呼应", "尾部曲面用明暗表达，不要用多余的线"],
-        },
+      id: "side",
+      title: "侧视图",
+      goal: "用车轮做比例尺，画出完整的车身侧面",
+      steps: [
+        { caption: "第 1 步 · 地面线与车轮定位", art: "assets/new/side/step-01.png" },
+        { caption: "第 2 步 · 车身外轮廓", art: "assets/new/side/step-02.png" },
+        { caption: "第 3 步 · 车窗与车门框架", art: "assets/new/side/step-03.png" },
+        { caption: "第 4 步 · 腰线与轮拱", art: "assets/new/side/step-04.png" },
+        { caption: "第 5 步 · 轮毂与分件", art: "assets/new/side/step-05.png" },
+        { caption: "第 6 步 · 光影与排线", art: "assets/new/side/step-06.png" },
+        { caption: "第 7 步 · 细节整理", art: "assets/new/side/step-07.png" },
+        { caption: "成品图", art: "assets/new/side/final.png" }
       ],
+      tips: ["轮子直径就是整台车的比例尺", "先轻线找形，再加重定型", "腰线决定整车姿态，务必一笔连贯"]
     },
     {
-      id: "unit-3",
-      title: "单元三 · 新能源设计语言",
-      lessons: [
-        {
-          id: 9,
-          title: "前脸与封闭式格栅",
-          goal: "理解 EV 前脸设计语言：封闭格栅、曲面与分件线。",
-          steps: [
-            { caption: "观察真实 EV 前脸的封闭式处理", art: "assets/illustrations/lesson-09-step-01.svg" },
-            { caption: "画前脸曲面与下保险杠的分件", art: "assets/illustrations/lesson-09-step-02.svg" },
-            { caption: "用连续长线表现干净的曲面", art: "assets/illustrations/lesson-09-step-03.svg" },
-            { caption: "对比油车格栅与电车封闭前脸", art: "assets/illustrations/lesson-09-step-04.svg" },
-            { caption: "标注分件线走向，检查曲面连续性", art: "assets/final/lesson-09-final.png" },
-          ],
-          tips: ["没有格栅意味着元素更少，曲面必须更准确", "分件线要顺着曲面走势画", "前脸的'表情'由灯组与进气口决定"],
-        },
-        {
-          id: 10,
-          title: "灯光设计",
-          goal: "画出贯穿式灯带与日行灯，理解灯具与品牌语言的关系。",
-          steps: [
-            { caption: "定位灯带：一条贯穿前脸的横线", art: "assets/illustrations/lesson-10-step-01.svg" },
-            { caption: "画出灯组上扬的'眼神'", art: "assets/illustrations/lesson-10-step-02.svg" },
-            { caption: "表现灯腔的高光与层次", art: "assets/illustrations/lesson-10-step-03.svg" },
-            { caption: "用留白强调发光感", art: "assets/illustrations/lesson-10-step-04.svg" },
-            { caption: "对比不同灯形，找品牌识别点", art: "assets/final/lesson-10-final.png" },
-          ],
-          tips: ["灯带是新能源车的品牌签名", "高光靠留白表现，不要涂白", "灯形越简洁越耐看"],
-        },
-        {
-          id: 11,
-          title: "轮毂与细节",
-          goal: "设计轮毂：辐条布局、轮拱关系与细节层级。",
-          steps: [
-            { caption: "先定轮毂圆与轮拱的间距", art: "assets/illustrations/lesson-11-step-01.svg" },
-            { caption: "画辐条布局（奇数辐更显运动）", art: "assets/illustrations/lesson-11-step-02.svg" },
-            { caption: "表现轮拱阴影与轮胎侧壁", art: "assets/illustrations/lesson-11-step-03.svg" },
-            { caption: "加门缝、后视镜等二级细节", art: "assets/illustrations/lesson-11-step-04.svg" },
-            { caption: "检查细节层级：先大形，后细节", art: "assets/final/lesson-11-final.png" },
-          ],
-          tips: ["细节要有主次：第一眼先看到整体比例", "辐条从轮毂中心放射，注意透视", "轮毂是侧面图的'眼睛'，值得单独练"],
-        },
-        {
-          id: 12,
-          title: "草图迭代",
-          goal: "用五分钟快稿，在同一比例下画出多个方案。",
-          steps: [
-            { caption: "固定比例基准：D 圆与轴距", art: "assets/illustrations/lesson-12-step-01.svg" },
-            { caption: "快速画两三个不同姿态的方案", art: "assets/illustrations/lesson-12-step-02.svg" },
-            { caption: "对比方案，圈出最强的一个", art: "assets/illustrations/lesson-12-step-03.svg" },
-            { caption: "在选中方案上加设计细节", art: "assets/final/lesson-12-final.png" },
-          ],
-          tips: ["快稿不追求干净，追求数量与想法", "先求差异，再求完善", "同一比例下的方案对比才有意义"],
-        },
+      id: "rear",
+      title: "后视图",
+      goal: "从车尾掌握对称、宽体与层次",
+      steps: [
+        { caption: "第 1 步 · 尾部框架与车轮", art: "assets/new/rear/step-01.png" },
+        { caption: "第 2 步 · 尾灯与后保险杠", art: "assets/new/rear/step-02.png" },
+        { caption: "第 3 步 · 结构整理", art: "assets/new/rear/step-03.png" },
+        { caption: "成品图", art: "assets/new/rear/final.png" }
       ],
+      tips: ["后视图同样要先画中轴，保证左右对称", "尾灯和牌照区域是视觉重点", "宽体感来自轮拱与肩线的对比"]
     },
     {
-      id: "unit-4",
-      title: "单元四 · 渲染与表现",
-      lessons: [
-        {
-          id: 13,
-          title: "马克笔渲染基础",
-          goal: "掌握平涂、渐变、叠色与高光留白四种基本技法。",
-          steps: [
-            { caption: "平涂：均匀快速地铺色", art: "assets/illustrations/lesson-13-step-01.svg" },
-            { caption: "渐变：从深到浅过渡", art: "assets/illustrations/lesson-13-step-02.svg" },
-            { caption: "叠色：建立阴影层次", art: "assets/illustrations/lesson-13-step-03.svg" },
-            { caption: "高光留白与局部提亮", art: "assets/illustrations/lesson-13-step-04.svg" },
-            { caption: "修正边缘，控制叠色次数", art: "assets/final/lesson-13-final.png" },
-          ],
-          tips: ["马克笔要快速扫过，不要来回涂", "先浅后深，控制叠色次数", "留白比涂白更有'光感'"],
-        },
-        {
-          id: 14,
-          title: "光影与材质",
-          goal: "表现车身反光、玻璃与轮胎的材质差异。",
-          steps: [
-            { caption: "车身：上明下暗的柱面反光", art: "assets/illustrations/lesson-14-step-01.svg" },
-            { caption: "玻璃：斜向的反射带", art: "assets/illustrations/lesson-14-step-02.svg" },
-            { caption: "轮胎：哑光深色加一条高光弧", art: "assets/illustrations/lesson-14-step-03.svg" },
-            { caption: "地面接触阴影定住整车", art: "assets/illustrations/lesson-14-step-04.svg" },
-            { caption: "整体明暗检查：光源方向统一", art: "assets/final/lesson-14-final.png" },
-          ],
-          tips: ["玻璃与车身的反光方向要保持一致", "哑光与亮面靠明度差区分", "所有阴影都要服从同一个光源"],
-        },
-        {
-          id: 15,
-          title: "快速表现图",
-          goal: "用天空、地面与速度线快速营造氛围感。",
-          steps: [
-            { caption: "画天空色带与地平线", art: "assets/illustrations/lesson-15-step-01.svg" },
-            { caption: "车身快速铺大色", art: "assets/illustrations/lesson-15-step-02.svg" },
-            { caption: "画地面反射与接触阴影", art: "assets/illustrations/lesson-15-step-03.svg" },
-            { caption: "加速度线与光效，完成表现图", art: "assets/final/lesson-15-final.png" },
-          ],
-          tips: ["表现图先铺背景再画车，节奏更快", "速度线别画满，留白更有动感"],
-        },
-        {
-          id: 16,
-          title: "完整效果图",
-          goal: "完成一张包含多角度插画与版式的完整效果图。",
-          steps: [
-            { caption: "主图：侧视完成稿铺色", art: "assets/illustrations/lesson-16-step-01.svg" },
-            { caption: "小插画：轮毂细节研究", art: "assets/illustrations/lesson-16-step-02.svg" },
-            { caption: "小插画：前脸与灯组", art: "assets/illustrations/lesson-16-step-03.svg" },
-            { caption: "加标题块与设计说明", art: "assets/illustrations/lesson-16-step-04.svg" },
-            { caption: "统一版式，检查主次关系", art: "assets/final/lesson-16-final.png" },
-          ],
-          tips: ["效果图是一张'海报'，主图占最大面积", "小插画要与主图风格一致", "标题字要少，设计说明要短"],
-        },
+      id: "oblique",
+      title: "斜视图",
+      goal: "用透视辅助线画出最有立体感的斜侧角度",
+      steps: [
+        { caption: "第 1 步 · 透视辅助线", art: "assets/new/oblique/step-01.png" },
+        { caption: "第 2 步 · 几何体定位", art: "assets/new/oblique/step-02.png" },
+        { caption: "第 3 步 · 车身大形", art: "assets/new/oblique/step-03.png" },
+        { caption: "第 4 步 · 座舱与车窗框架", art: "assets/new/oblique/step-04.png" },
+        { caption: "第 5 步 · 轮廓整理", art: "assets/new/oblique/step-05.png" },
+        { caption: "第 6 步 · 轮拱与轮毂", art: "assets/new/oblique/step-06.png" },
+        { caption: "第 7 步 · 前脸与车灯", art: "assets/new/oblique/step-07.png" },
+        { caption: "第 8 步 · 分件与细节", art: "assets/new/oblique/step-08.png" },
+        { caption: "第 9 步 · 线条整理", art: "assets/new/oblique/step-09.png" },
+        { caption: "第 10 步 · 光影调子", art: "assets/new/oblique/step-10.png" },
+        { caption: "第 11 步 · 完成整理", art: "assets/new/oblique/step-11.png" },
+        { caption: "成品图", art: "assets/new/oblique/final.png" }
       ],
+      tips: ["斜视图先画消失点与辅助线，再画车", "透视椭圆的长轴永远水平", "近大远小：前轮比后轮大且低"]
     },
     {
-      id: "unit-5",
-      title: "单元五 · 创作与作品集",
-      lessons: [
-        {
-          id: 17,
-          title: "概念车创作",
-          goal: "完成一个完整流程：灵感→比例→造型→渲染→命名。",
-          steps: [
-            { caption: "定主题与灵感方向", art: "assets/illustrations/lesson-17-step-01.svg" },
-            { caption: "用 D 圆定比例，画两三个方案", art: "assets/illustrations/lesson-17-step-02.svg" },
-            { caption: "定稿造型与关键线条", art: "assets/illustrations/lesson-17-step-03.svg" },
-            { caption: "渲染光影与材质", art: "assets/illustrations/lesson-17-step-04.svg" },
-            { caption: "加背景、写车名与设计说明", art: "assets/final/lesson-17-final.png" },
-          ],
-          tips: ["设计说明写三句话：灵感、比例、目标用户", "命名要短，有画面感", "概念车允许夸张，但比例不能破"],
-        },
-        {
-          id: 18,
-          title: "家族化设计",
-          goal: "用同一品牌语言设计两到三款不同定位的车。",
-          steps: [
-            { caption: "确定家族设计语言：灯形、格栅、腰线", art: "assets/illustrations/lesson-18-step-01.svg" },
-            { caption: "画第一款：轿车定位", art: "assets/illustrations/lesson-18-step-02.svg" },
-            { caption: "画第二款：SUV 定位（同语言不同比例）", art: "assets/illustrations/lesson-18-step-03.svg" },
-            { caption: "对比两款，检查语言一致性", art: "assets/final/lesson-18-final.png" },
-          ],
-          tips: ["家族设计=相同的'脸'，不同的'身'", "比例变了，语言不变，才能一眼认出"],
-        },
-        {
-          id: 19,
-          title: "作品集排版",
-          goal: "把多张设计稿排成一页，学会写标题、标注与说明。",
-          steps: [
-            { caption: "确定页面版式与主次", art: "assets/illustrations/lesson-19-step-01.svg" },
-            { caption: "放主图与细节图，统一比例", art: "assets/illustrations/lesson-19-step-02.svg" },
-            { caption: "加标题、标注线与小字说明", art: "assets/illustrations/lesson-19-step-03.svg" },
-            { caption: "整体检查：留白、对齐、字体统一", art: "assets/final/lesson-19-final.png" },
-          ],
-          tips: ["一页只讲一个项目", "对齐是排版的生命线", "说明文字控制在三行以内"],
-        },
-        {
-          id: 20,
-          title: "学习总结与自评",
-          goal: "对照清单自评 20 课成果，制定下一步训练计划。",
-          steps: [
-            { caption: "回看自己的所有草图，挑出最好的三张", art: "assets/illustrations/lesson-20-step-01.svg" },
-            { caption: "用比例清单检查每张图", art: "assets/illustrations/lesson-20-step-02.svg" },
-            { caption: "用透视清单检查视角", art: "assets/illustrations/lesson-20-step-03.svg" },
-            { caption: "用渲染清单检查明暗", art: "assets/illustrations/lesson-20-step-04.svg" },
-            { caption: "写下三条最该练的，进入下一轮", art: "assets/final/lesson-20-final.png" },
-          ],
-          tips: ["自评清单：比例、透视、线稿、渲染各 3 条", "每轮只练三件事，练透再换", "把最好的三张贴出来，下轮超越它"],
-        },
+      id: "interior",
+      title: "舱内图",
+      goal: "从驾驶座视角画出座舱空间与内饰",
+      steps: [
+        { caption: "第 1 步 · 座舱透视框架", art: "assets/new/interior/step-01.png" },
+        { caption: "第 2 步 · 中控与座椅结构", art: "assets/new/interior/step-02.png" },
+        { caption: "第 3 步 · 方向盘与仪表", art: "assets/new/interior/step-03.png" },
+        { caption: "第 4 步 · 车门内饰", art: "assets/new/interior/step-04.png" },
+        { caption: "第 5 步 · 空间与视野", art: "assets/new/interior/step-05.png" },
+        { caption: "第 6 步 · 细节补充", art: "assets/new/interior/step-06.png" },
+        { caption: "第 7 步 · 光影整理", art: "assets/new/interior/step-07.png" },
+        { caption: "成品图", art: "assets/new/interior/final.png" }
       ],
-    },
-    {
-      id: "unit-6",
-      title: "单元六 · 写生与材质",
-      lessons: [
-        {
-          id: 21,
-          title: "实车写生·线稿",
-          goal: "对着真实汽车照片写生，用线稿抓住真实比例、姿态与结构。",
-          steps: [
-            { caption: "用轻线画出整车比例框：轮距、车高、轴距", art: "assets/illustrations/lesson-21-step-01.svg" },
-            { caption: "先画轮子与地面线，锁定姿态", art: "assets/illustrations/lesson-21-step-02.svg" },
-            { caption: "一笔画出车身大面轮廓，暂不抠细节", art: "assets/illustrations/lesson-21-step-03.svg" },
-            { caption: "刻画车窗、腰线、门缝等关键分件", art: "assets/illustrations/lesson-21-step-04.svg" },
-            { caption: "收线定型，擦淡辅助线，完成写生线稿", art: "assets/final/lesson-21-final.png" },
-          ],
-          tips: ["写生不是抄照片，是先理解再概括", "先整体后局部：比例框没对之前不画细节", "每画一笔都回头和照片对照一次"],
-        },
-        {
-          id: 22,
-          title: "实车写生·光影与调子",
-          goal: "在线稿基础上铺调子，用黑白灰表现体积、转折与材质。",
-          steps: [
-            { caption: "标出光源方向，区分亮面与暗面", art: "assets/illustrations/lesson-22-step-01.svg" },
-            { caption: "先铺暗部大调子，整体压深", art: "assets/illustrations/lesson-22-step-02.svg" },
-            { caption: "加重转折面与结构线附近的对比", art: "assets/illustrations/lesson-22-step-03.svg" },
-            { caption: "加反光、投影与地面反射", art: "assets/illustrations/lesson-22-step-04.svg" },
-            { caption: "控制黑白灰层次，完成写生", art: "assets/final/lesson-22-final.png" },
-          ],
-          tips: ["调子要整体推进，不要一次画完一个局部", "暗部最深的地方在明暗交界线", "高光靠留白，不要用橡皮擦出来"],
-        },
-        {
-          id: 23,
-          title: "构图与版面",
-          goal: "学会安排画面位置、留白与多图组合，让一张图成为完整作品。",
-          steps: [
-            { caption: "画九宫格，把主体放在视觉重心", art: "assets/illustrations/lesson-23-step-01.svg" },
-            { caption: "用留白和视线方向引导观看顺序", art: "assets/illustrations/lesson-23-step-02.svg" },
-            { caption: "多角度组合排版：主图加细节放大图", art: "assets/illustrations/lesson-23-step-03.svg" },
-            { caption: "加文字标注、比例尺与签名栏", art: "assets/illustrations/lesson-23-step-04.svg" },
-            { caption: "完成一张完整的版面设计", art: "assets/final/lesson-23-final.png" },
-          ],
-          tips: ["主体占画面 60% 以上，不要孤零零悬在中间", "视线方向多留白，画面更透气", "版面是设计的第二张脸，排版要克制"],
-        },
-        {
-          id: 24,
-          title: "材质写生·金属球",
-          goal: "通过金属球写生，理解高反光材质的光影规律。",
-          steps: [
-            { caption: "画球体轮廓与光源方向", art: "assets/illustrations/lesson-24-step-01.svg" },
-            { caption: "铺出金属的高反差明暗", art: "assets/illustrations/lesson-24-step-02.svg" },
-            { caption: "加环境反光带与落地投影", art: "assets/illustrations/lesson-24-step-03.svg" },
-            { caption: "压深暗部，强化明暗交界线", art: "assets/illustrations/lesson-24-step-04.svg" },
-            { caption: "点出高光与反光，完成金属质感", art: "assets/final/lesson-24-final.png" },
-          ],
-          tips: ["金属的特点：高光亮、暗部深、反光强", "高光形状要顺着球面弧度走", "先画环境反光，再画高光"],
-        },
-        {
-          id: 25,
-          title: "材质写生·玻璃与塑料",
-          goal: "区分玻璃、塑料与车漆的质感表现，能画出材质小样。",
-          steps: [
-            { caption: "画玻璃球：高光靠留白，暗部画环境", art: "assets/illustrations/lesson-25-step-01.svg" },
-            { caption: "加折射线与透射背景", art: "assets/illustrations/lesson-25-step-02.svg" },
-            { caption: "塑料与橡胶：用哑光排线表现", art: "assets/illustrations/lesson-25-step-03.svg" },
-            { caption: "对比写生：金属车漆 vs 哑光塑料", art: "assets/illustrations/lesson-25-step-04.svg" },
-            { caption: "完成一组材质小样对比", art: "assets/final/lesson-25-final.png" },
-          ],
-          tips: ["玻璃没有固有调子，画的是周围环境", "哑光材质反光柔和，排线要整齐", "车漆介于两者之间：高反差加柔和过渡"],
-        },
-      ],
-    },
-    {
-      id: "unit-7",
-      title: "单元七 · 专业技法与进阶",
-      lessons: [
-        {
-          id: 26,
-          title: "色粉技法",
-          goal: "掌握色粉棒、擦笔与揉擦技法，快速铺出大关系。",
-          steps: [
-            { caption: "准备工具：色粉棒、擦笔、定画液", art: "assets/illustrations/lesson-26-step-01.svg" },
-            { caption: "用色粉大面积铺底色", art: "assets/illustrations/lesson-26-step-02.svg" },
-            { caption: "用擦笔或手指揉开过渡面", art: "assets/illustrations/lesson-26-step-03.svg" },
-            { caption: "深色压暗部，浅色提亮部", art: "assets/illustrations/lesson-26-step-04.svg" },
-            { caption: "结合线稿收形，完成快速表现", art: "assets/final/lesson-26-final.png" },
-          ],
-          tips: ["色粉适合铺大关系，细节交给线条", "揉擦方向要顺着车身曲面", "上完色粉喷定画液，防止画面糊掉"],
-        },
-        {
-          id: 27,
-          title: "底色高光",
-          goal: "用底色纸加白笔高光，快速呈现车身光感。",
-          steps: [
-            { caption: "选灰/米色底色纸，先勾线稿", art: "assets/illustrations/lesson-27-step-01.svg" },
-            { caption: "用深色铺暗部与投影", art: "assets/illustrations/lesson-27-step-02.svg" },
-            { caption: "保留底色作为中间调", art: "assets/illustrations/lesson-27-step-03.svg" },
-            { caption: "用白笔提亮高光与受光面", art: "assets/illustrations/lesson-27-step-04.svg" },
-            { caption: "用马克笔补细节，完成底色高光稿", art: "assets/final/lesson-27-final.png" },
-          ],
-          tips: ["底色就是中间调，省去一层排线", "高光一笔到位，不要反复涂抹", "白笔比橡皮更可控，适合改形"],
-        },
-        {
-          id: 28,
-          title: "精细效果图·外饰",
-          goal: "放慢速度，画一张经得起放大细看的外饰效果图。",
-          steps: [
-            { caption: "精确线稿：比例、透视、分件严格校核", art: "assets/illustrations/lesson-28-step-01.svg" },
-            { caption: "按面铺明暗，先浅后深", art: "assets/illustrations/lesson-28-step-02.svg" },
-            { caption: "车漆渐变与倒影处理", art: "assets/illustrations/lesson-28-step-03.svg" },
-            { caption: "玻璃、灯组与格栅的精细刻画", art: "assets/illustrations/lesson-28-step-04.svg" },
-            { caption: "轮毂、反光镜等细节收尾", art: "assets/final/lesson-28-final.png" },
-          ],
-          tips: ["精细图是慢功夫：一张图顶十张草图", "细节必须服从整体光影", "退到一米外看整体，再凑近抠细节"],
-        },
-        {
-          id: 29,
-          title: "精细效果图·内饰",
-          goal: "掌握内饰透视与内饰件表达，补齐设计表达的另一半。",
-          steps: [
-            { caption: "内饰透视：仪表台、方向盘与座椅定位", art: "assets/illustrations/lesson-29-step-01.svg" },
-            { caption: "方向盘与仪表盘细节", art: "assets/illustrations/lesson-29-step-02.svg" },
-            { caption: "中控屏、出风口与副仪表台", art: "assets/illustrations/lesson-29-step-03.svg" },
-            { caption: "座椅与门板的材质表现", art: "assets/illustrations/lesson-29-step-04.svg" },
-            { caption: "光影统一，完成内饰效果图", art: "assets/final/lesson-29-final.png" },
-          ],
-          tips: ["内饰透视一般用一点或两点透视", "屏幕反光是内饰的视觉焦点", "材质对比：皮革哑光、金属高光、屏幕反光"],
-        },
-        {
-          id: 30,
-          title: "数字化二维辅助设计 CAS",
-          goal: "把纸面草图带进数字工具，理解 CAS 的工作方式。",
-          steps: [
-            { caption: "手绘草图拍照或扫描，导入软件", art: "assets/illustrations/lesson-30-step-01.svg" },
-            { caption: "降低线稿透明度，新建图层描形", art: "assets/illustrations/lesson-30-step-02.svg" },
-            { caption: "用数位板勾线并调整比例", art: "assets/illustrations/lesson-30-step-03.svg" },
-            { caption: "铺底色、上材质，做数字渲染", art: "assets/illustrations/lesson-30-step-04.svg" },
-            { caption: "手绘与数字图对照，输出设计方案", art: "assets/final/lesson-30-final.png" },
-          ],
-          tips: ["CAS 不是取代手绘，是手绘的延伸", "图层命名清晰，随时能回到上一步", "先解决造型，再玩滤镜与特效"],
-        },
-        {
-          id: 31,
-          title: "考前作品集标准",
-          goal: "按设计院校的标准整理作品集，让每一张画都有目的。",
-          steps: [
-            { caption: "了解目标院校的考察重点", art: "assets/illustrations/lesson-31-step-01.svg" },
-            { caption: "精选作品：宁缺毋滥", art: "assets/illustrations/lesson-31-step-02.svg" },
-            { caption: "每个项目展示过程：草图到成稿", art: "assets/illustrations/lesson-31-step-03.svg" },
-            { caption: "统一版面与说明文字", art: "assets/illustrations/lesson-31-step-04.svg" },
-            { caption: "用自查清单过一遍再提交", art: "assets/final/lesson-31-final.png" },
-          ],
-          tips: ["作品集看的是潜力：思考过程比成品重要", "放 10-15 张精挑的作品，不要堆数量", "中文标题加英文注释是基本礼仪"],
-        },
-        {
-          id: 32,
-          title: "透视查漏·常见错误诊所",
-          goal: "对照设计师点评中的高频错误检查自己的透视图，学会自查与修正。",
-          steps: [
-            { caption: "错误①：后轮掉到地面线以下——轮心必须在同一水平线", art: "assets/illustrations/lesson-32-step-01.svg" },
-            { caption: "错误②：透视盒角度画歪——先画小盒子验证，再放大起草", art: "assets/illustrations/lesson-32-step-02.svg" },
-            { caption: "错误③：特征线没有体积感——一条线不等于一个特征", art: "assets/illustrations/lesson-32-step-03.svg" },
-            { caption: "练习法：临摹透视准的草图 + 画真车照片，逐点对比", art: "assets/illustrations/lesson-32-step-04.svg" },
-            { caption: "完成透视自检清单，再进入作品集阶段", art: "assets/final/lesson-32-final.png" },
-          ],
-          tips: ["高频错误：车轮透视、后轮悬空、特征平如纸", "透视没把握时，先在角落画一个 2cm 的小盒子验证", "多画带透视角度的车，临摹透视准的草图，画真车", "源自知乎设计师的免费手绘心得：多动手、多对比"],
-        },
-      ],
-    },
+      tips: ["舱内先画大透视：中控、座椅、方向盘", "玻璃与屏幕用反光表达", "线条按前实后虚拉开空间"]
+    }
   ],
+  popular: [
+    {
+      id: "zunjie",
+      name: "尊界",
+      note: "三视图：正、后、侧，练完五个视角课程后挑战整台车",
+      views: [
+        { name: "正视图", art: "assets/new/popular/zunjie/front.png" },
+        { name: "后视图", art: "assets/new/popular/zunjie/rear.png" },
+        { name: "侧视图", art: "assets/new/popular/zunjie/side.png" }
+      ]
+    },
+    {
+      id: "wenjie",
+      name: "问界",
+      note: "三视图：正、后、侧，观察新能源车的比例与细节",
+      views: [
+        { name: "正视图", art: "assets/new/popular/wenjie/front.png" },
+        { name: "后视图", art: "assets/new/popular/wenjie/rear.png" },
+        { name: "侧视图", art: "assets/new/popular/wenjie/side.png" }
+      ]
+    }
+  ]
 };

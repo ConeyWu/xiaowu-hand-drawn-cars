@@ -30,14 +30,14 @@ test("打卡后持久化，重新创建 store 仍保留", () => {
   s1.markComplete(1);
   const s2 = createProgressStore(storage);
   assert.equal(s2.isComplete(1), true);
-  assert.deepEqual(s2.getCompleted(), [1]);
+  assert.deepEqual(s2.getCompleted(), ["1"]);
 });
 
 test("重复打卡不产生重复记录", () => {
   const s = createProgressStore(memoryStorage());
   s.markComplete(2);
   s.markComplete(2);
-  assert.deepEqual(s.getCompleted(), [2]);
+  assert.deepEqual(s.getCompleted(), ["2"]);
 });
 
 test("单元进度计算正确", () => {

@@ -12,7 +12,7 @@ export function createProgressStore(storage) {
     }
   }
   function save(set) {
-    storage.setItem(KEY, JSON.stringify([...set].map(Number)));
+    storage.setItem(KEY, JSON.stringify([...set]));
   }
   return {
     isComplete(id) {
@@ -24,7 +24,7 @@ export function createProgressStore(storage) {
       save(set);
     },
     getCompleted() {
-      return [...load()].map(Number);
+      return [...load()];
     },
     getUnitProgress(unit) {
       const ids = unit.lessons.map((l) => l.id);

@@ -3,3 +3,7 @@ node_modules/
 Thumbs.db
 output/
 .worktrees/
+
+# 用户源素材与中间生成物
+待整理素材/
+assets/process/

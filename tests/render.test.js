@@ -1,60 +1,48 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { SITE_DATA } from "../js/data.js";
-import { lessonCardHTML, unitSectionHTML, lessonPageHTML } from "../js/app.js";
+import { courseCardHTML, courseSectionHTML, coursePageHTML, popularPageHTML, popularSectionHTML } from "../js/app.js";
 
 const progressStub = {
-  isComplete: (id) => id === 1,
-  getUnitProgress: (unit) => {
-    const done = unit.lessons.filter((l) => l.id === 1).length;
-    return { done, total: unit.lessons.length, complete: done === unit.lessons.length };
-  },
+  isComplete: () => false,
+  getUnitProgress: () => ({ done: 0, total: 1, complete: false }),
 };
 
-test("课程卡片包含课名、链接与完成状态", () => {
-  const lesson = SITE_DATA.units[0].lessons[0];
-  const html = lessonCardHTML(lesson, true);
-  assert.ok(html.includes("第 1 课"));
-  assert.ok(html.includes("lesson.html?id=1"));
-  assert.ok(html.includes("已完成"));
+test("课程卡片包含课名、链接与封面", () => {
+  const course = SITE_DATA.courses[0];
+  const html = courseCardHTML(course, false);
+  assert.ok(html.includes("正视图"));
+  assert.ok(html.includes("course.html?view=front"));
+  assert.ok(html.includes("final.png"));
 });
 
-test("单元区块包含单元名、课程卡片与进度", () => {
-  const unit = SITE_DATA.units[0];
-  const html = unitSectionHTML(unit, progressStub);
-  assert.ok(html.includes("单元一"));
-  assert.ok(html.includes("汽车比例系统"));
-  assert.ok(html.includes("1/4"));
+test("课程区渲染 5 张课程卡片", () => {
+  const html = courseSectionHTML(SITE_DATA.courses, progressStub);
+  assert.equal((html.match(/class="lesson-card course-card"/g) || []).length, 5);
 });
 
-test("课程页包含目标、全部步骤插图与口诀", () => {
-  const lesson = SITE_DATA.units[0].lessons[0];
-  const next = SITE_DATA.units[0].lessons[1];
-  const html = lessonPageHTML(lesson, null, next, false);
-  assert.ok(html.includes("reference-drawing.jpg"), "课程页应展示手绘范例");
-  assert.ok(html.includes(lesson.goal));
-  for (const s of lesson.steps) {
-    assert.ok(html.includes(s.caption), `缺少步骤：${s.caption}`);
-    assert.ok(html.includes(s.art), `缺少插图：${s.art}`);
-  }
+test("课程页包含目标、全部步骤与成品图", () => {
+  const course = SITE_DATA.courses[1];
+  const next = SITE_DATA.courses[2];
+  const html = coursePageHTML(course, null, next, false);
+  assert.ok(html.includes(course.goal));
+  assert.ok(html.includes("成品图"));
+  assert.ok(html.includes("course.html?view=rear"));
+  assert.equal((html.match(/class="step"/g) || []).length, course.steps.length);
   assert.ok(html.includes("完成本节"));
-  assert.ok(html.includes("lesson.html?id=2"));
 });
 
-test("已完成课程显示完成态按钮", () => {
-  const lesson = SITE_DATA.units[0].lessons[0];
-  const html = lessonPageHTML(lesson, null, null, true);
-  assert.ok(html.includes("disabled"));
-  assert.ok(html.includes("已完成"));
+test("流行车辆页渲染尊界与问界的三视图", () => {
+  const html = popularPageHTML(SITE_DATA.popular);
+  assert.ok(html.includes("尊界"));
+  assert.ok(html.includes("问界"));
+  assert.equal((html.match(/class="view-card"/g) || []).length, 6);
 });
-test("课程页包含大师示范跟画面板（两段视频与五步清单）", () => {
-  const lesson = SITE_DATA.units[0].lessons[0];
-  const next = SITE_DATA.units[0].lessons[1];
-  const html = lessonPageHTML(lesson, null, next, false);
-  assert.ok(html.includes("跟画步骤"), "课程页应有跟画步骤面板");
-  assert.ok(html.includes("BV1xt411Z7Rn"), "应内嵌线稿速写示范视频");
-  assert.ok(html.includes("BV1pQ4y1R7UV"), "应内嵌几何体起型示范视频");
-  assert.ok(html.includes("master.html"), "应链接到大师示范页");
-  assert.ok(html.includes("几何起型"), "清单应包含几何起型");
-  assert.ok(html.includes("成品图"), "应提示对照成品图");
+
+test("流行车辆卡片包含车名与封面", () => {
+  const html = popularSectionHTML(SITE_DATA.popular);
+  assert.ok(html.includes("尊界"));
+  assert.ok(html.includes("问界"));
+  assert.ok(html.includes("popular.html#zunjie"));
+  assert.ok(html.includes("popular.html#wenjie"));
 });

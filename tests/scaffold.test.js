@@ -11,22 +11,25 @@ async function exists(p) {
 }
 
 test("核心文件都存在", async () => {
-  for (const f of ["package.json", "scripts/serve.js", "index.html", "lessons.html", "lesson.html", "css/styles.css"]) {
+  for (const f of ["package.json", "scripts/serve.js", "index.html", "lessons.html", "course.html", "popular.html", "master.html", "css/styles.css", "js/data.js", "js/app.js"]) {
     assert.ok(await exists(f), `缺少 ${f}`);
   }
 });
 
-test("三个页面有 data-page 与渲染容器", async () => {
+test("页面有 data-page 与渲染容器", async () => {
   const home = await read("index.html");
   assert.ok(home.includes('data-page="home"'));
-  assert.ok(home.includes('id="unit-map"'));
-  assert.ok(home.includes('src="js/app.js"'));
+  assert.ok(home.includes('id="course-grid"'));
+  assert.ok(home.includes('id="popular-grid"'));
   const lessons = await read("lessons.html");
   assert.ok(lessons.includes('data-page="lessons"'));
-  assert.ok(lessons.includes('id="lesson-list"'));
-  const lesson = await read("lesson.html");
-  assert.ok(lesson.includes('data-page="lesson"'));
-  assert.ok(lesson.includes('id="lesson-page"'));
+  assert.ok(lessons.includes('id="course-list"'));
+  const course = await read("course.html");
+  assert.ok(course.includes('data-page="course"'));
+  assert.ok(course.includes('id="course-page"'));
+  const popular = await read("popular.html");
+  assert.ok(popular.includes('data-page="popular"'));
+  assert.ok(popular.includes('id="popular-list"'));
 });
 
 test("样式包含设计规范配色", async () => {
