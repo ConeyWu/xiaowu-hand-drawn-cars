@@ -21,11 +21,12 @@ test("每门课程字段完整且最后一步为成品图", () => {
       assert.ok(s.caption);
       assert.ok(s.art);
     }
-    assert.match(c.steps[c.steps.length - 1].art, /final\.(png|webp)$/, `${c.id} 最后一步应为成品图`);
+    assert.equal(c.steps[c.steps.length - 1].caption, "成品图", `${c.id} 最后一步应为成品图`);
+    assert.match(c.steps[c.steps.length - 1].art, /\.webp$/, `${c.id} 成品图应为最后一张步骤图`);
     assert.ok(Array.isArray(c.tips) && c.tips.length > 0);
   }
   const front = SITE_DATA.courses.find((c) => c.id === "front");
-  assert.equal(front.steps.length, 16, "正视图：15 步 + 成品图");
+  assert.equal(front.steps.length, 15, "正视图：14 步 + 成品图（第15步）");
 });
 
 test("流行车辆：尊界、问界各三视图", () => {

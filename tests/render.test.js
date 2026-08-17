@@ -13,7 +13,7 @@ test("课程卡片包含课名、链接与封面", () => {
   const html = courseCardHTML(course, false);
   assert.ok(html.includes("正视图"));
   assert.ok(html.includes("course.html?view=front"));
-  assert.ok(html.includes("final.webp"));
+  assert.ok(html.includes("step-15.webp"));
 });
 
 test("课程区渲染 5 张课程卡片", () => {
