@@ -78,7 +78,7 @@ test("课程页渲染步骤并支持打卡写入进度", async () => {
   const pageEl = elements["course-page"];
   assert.ok(pageEl.innerHTML.includes("正视图课程"));
   assert.ok(pageEl.innerHTML.includes("成品图"));
-  assert.equal(count(pageEl.innerHTML, 'class="step"'), 5);
+  assert.equal(count(pageEl.innerHTML, 'class="step"'), 16);
   assert.ok(pageEl.innerHTML.includes("完成本节"));
   assert.deepEqual(storage.getItem("xiaowu.completedLessons"), null);
 
